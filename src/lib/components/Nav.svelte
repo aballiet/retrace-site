@@ -22,7 +22,7 @@
 					<path d="M16 6c-2 4-2 8 0 12" stroke="var(--color-accent-light)" stroke-width="1.5" stroke-linecap="round"/>
 				</svg>
 			</span>
-			<span class="logo-text">innerthread</span>
+			<span class="logo-text">retrace</span>
 		</a>
 
 		<button class="mobile-toggle" onclick={() => mobileOpen = !mobileOpen} aria-label="Toggle menu">
@@ -32,10 +32,11 @@
 		</button>
 
 		<div class="nav-links" class:open={mobileOpen}>
-			<a href="#how-it-works" onclick={() => mobileOpen = false}>How It Works</a>
+			<a href="#how-it-works" onclick={() => mobileOpen = false}>How it works</a>
+			<a href="#features" onclick={() => mobileOpen = false}>Features</a>
 			<a href="#privacy" onclick={() => mobileOpen = false}>Privacy</a>
 			<a href="https://github.com/aballiet/innerthread" target="_blank" rel="noopener">GitHub</a>
-			<a href="#get-started" class="btn-nav" onclick={() => mobileOpen = false}>Get Started</a>
+			<a href="#download" class="btn-nav" onclick={() => mobileOpen = false}>Download</a>
 		</div>
 	</div>
 </nav>

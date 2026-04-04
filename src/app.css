@@ -128,6 +128,7 @@ img, svg {
 .reveal-delay-2 { transition-delay: 200ms; }
 .reveal-delay-3 { transition-delay: 300ms; }
 .reveal-delay-4 { transition-delay: 400ms; }
+.reveal-delay-5 { transition-delay: 500ms; }
 
 /* Section spacing */
 section {

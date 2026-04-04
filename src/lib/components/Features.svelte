@@ -2,54 +2,67 @@
 	import { inview } from '$lib/actions/inview.js';
 </script>
 
-<section class="features">
+<section id="features" class="features">
 	<div class="container">
 		<div class="section-header" use:inview>
-			<h2 class="reveal">What makes innerthread <span class="highlight">different.</span></h2>
+			<h2 class="reveal">Everything retrace <span class="highlight">can do.</span></h2>
 			<p class="reveal reveal-delay-1">
-				Existing AI journaling apps all start from a blank page.
-				innerthread starts from what you already said.
+				Built for people who use AI tools daily and want to understand their own thinking.
 			</p>
 		</div>
 
 		<div class="feature-grid" use:inview>
 			<div class="feature reveal reveal-delay-1">
-				<div class="feature-tag">Ingestion</div>
-				<h3>Real conversation data</h3>
+				<div class="feature-tag">Sync</div>
+				<h3>Set and forget with Chrome</h3>
 				<p>
-					Not what you remember to journal. What you actually said.
-					Import from ChatGPT, Claude, WhatsApp, Messenger.
-					Auto-detect format from file contents.
+					The browser extension runs in the background and syncs new conversations
+					from ChatGPT and Claude as you use them. No manual exports.
 				</p>
 			</div>
 
 			<div class="feature reveal reveal-delay-2">
-				<div class="feature-tag">Reflection</div>
-				<h3>AI-powered via MCP</h3>
+				<div class="feature-tag">Search</div>
+				<h3>Semantic and keyword hybrid</h3>
 				<p>
-					Claude Desktop reads your data through a local MCP server.
-					No API costs. Uses your existing Claude Pro subscription.
-					Guided sessions that surface patterns across your life.
+					Find conversations by meaning, not just keywords. Powered by sqlite-vec
+					with 384-dimensional embeddings. Searches across all platforms in a single query.
 				</p>
 			</div>
 
 			<div class="feature reveal reveal-delay-3">
-				<div class="feature-tag">Integration</div>
-				<h3>Obsidian write-back</h3>
+				<div class="feature-tag">Reflection</div>
+				<h3>13 MCP tools for Claude Desktop</h3>
 				<p>
-					Your thin notes get enriched with evidence from real conversations.
-					Cross-reference vault notes with what you discussed across platforms.
-					Always preview before any file changes.
+					Search conversations, pull topic trends, view relationship timelines, analyze
+					sentiment over time, and trigger Obsidian write-back. All from inside Claude Desktop.
 				</p>
 			</div>
 
 			<div class="feature reveal reveal-delay-4">
-				<div class="feature-tag">Tracking</div>
-				<h3>Life dimension mapping</h3>
+				<div class="feature-tag">Life Dimensions</div>
+				<h3>Track 7 areas of your life</h3>
 				<p>
-					Track how your thinking evolves across career, relationships, health,
-					creativity, and personal growth. Real evidence showing change over time,
-					not just vibes.
+					Career, Relationships, Health, Personal Growth, Creativity, Finances, Purpose.
+					retrace maps conversations to dimensions so you can see where your attention actually goes.
+				</p>
+			</div>
+
+			<div class="feature reveal reveal-delay-3">
+				<div class="feature-tag">Obsidian</div>
+				<h3>Enrich notes with real evidence</h3>
+				<p>
+					retrace enriches Obsidian notes with conversation evidence using callout blocks.
+					Cross-reference what your notes claim with what you actually said. Preview before writing.
+				</p>
+			</div>
+
+			<div class="feature reveal reveal-delay-4">
+				<div class="feature-tag">Privacy</div>
+				<h3>Local AI, zero cloud</h3>
+				<p>
+					All embedding and analysis runs locally. No account required. No telemetry.
+					One SQLite file. The Chrome extension only reads from your logged-in browser session.
 				</p>
 			</div>
 		</div>
@@ -82,7 +95,7 @@
 
 	.feature-grid {
 		display: grid;
-		grid-template-columns: repeat(2, 1fr);
+		grid-template-columns: repeat(3, 1fr);
 		gap: var(--space-xl);
 	}
 
@@ -132,7 +145,7 @@
 	}
 
 	h3 {
-		font-size: 1.2rem;
+		font-size: 1.15rem;
 		font-weight: 650;
 		letter-spacing: -0.01em;
 		margin-bottom: var(--space-md);
@@ -144,7 +157,13 @@
 		line-height: 1.7;
 	}
 
-	@media (max-width: 768px) {
+	@media (max-width: 900px) {
+		.feature-grid {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+
+	@media (max-width: 600px) {
 		.feature-grid {
 			grid-template-columns: 1fr;
 		}

@@ -6,7 +6,7 @@
 	<div class="container">
 		<div class="section-header" use:inview>
 			<h2 class="reveal">How it works</h2>
-			<p class="reveal reveal-delay-1">Four steps from scattered conversations to structured self-knowledge.</p>
+			<p class="reveal reveal-delay-1">Five steps from scattered conversations to structured reflection.</p>
 		</div>
 
 		<div class="steps" use:inview>
@@ -14,13 +14,14 @@
 				<div class="step-number">01</div>
 				<div class="step-icon">
 					<svg width="32" height="32" viewBox="0 0 24 24" fill="none">
-						<path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" stroke="var(--color-accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-						<path d="M7 10l5 5 5-5" stroke="var(--color-accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-						<path d="M12 15V3" stroke="var(--color-accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+						<circle cx="18" cy="5" r="3" stroke="var(--color-accent)" stroke-width="1.5"/>
+						<circle cx="6" cy="12" r="3" stroke="var(--color-accent)" stroke-width="1.5"/>
+						<circle cx="18" cy="19" r="3" stroke="var(--color-accent)" stroke-width="1.5"/>
+						<path d="M9 10.5l6-3.5M9 13.5l6 3.5" stroke="var(--color-accent)" stroke-width="1.5" stroke-linecap="round"/>
 					</svg>
 				</div>
-				<h3>Import</h3>
-				<p>Export your conversations from ChatGPT, Claude, WhatsApp, or Messenger. Drag and drop. innerthread auto-detects the format.</p>
+				<h3>Sync with Chrome</h3>
+				<p>Install the browser extension. It auto-syncs new ChatGPT and Claude conversations in the background, rate-limited, completely silent.</p>
 			</div>
 
 			<div class="step-connector" aria-hidden="true">
@@ -33,15 +34,13 @@
 				<div class="step-number">02</div>
 				<div class="step-icon">
 					<svg width="32" height="32" viewBox="0 0 24 24" fill="none">
-						<path d="M4 7V4a2 2 0 012-2h8.5L20 7.5V20a2 2 0 01-2 2H6a2 2 0 01-2-2v-3" stroke="var(--color-teal)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-						<path d="M14 2v6h6" stroke="var(--color-teal)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-						<path d="M2 13h10" stroke="var(--color-teal)" stroke-width="1.5" stroke-linecap="round"/>
-						<path d="M2 17h7" stroke="var(--color-teal)" stroke-width="1.5" stroke-linecap="round"/>
-						<path d="M2 9h5" stroke="var(--color-teal)" stroke-width="1.5" stroke-linecap="round"/>
+						<path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" stroke="var(--color-teal)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+						<path d="M7 10l5 5 5-5" stroke="var(--color-teal)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+						<path d="M12 15V3" stroke="var(--color-teal)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 					</svg>
 				</div>
-				<h3>Store</h3>
-				<p>Everything is normalized into a unified SQLite database on your machine. One schema across all platforms. Nothing leaves your device.</p>
+				<h3>Import the rest</h3>
+				<p>Export WhatsApp (.txt) or Messenger (JSON) archives and drag them into retrace. Format is detected automatically. No configuration.</p>
 			</div>
 
 			<div class="step-connector" aria-hidden="true">
@@ -54,13 +53,13 @@
 				<div class="step-number">03</div>
 				<div class="step-icon">
 					<svg width="32" height="32" viewBox="0 0 24 24" fill="none">
-						<circle cx="12" cy="12" r="10" stroke="var(--color-accent)" stroke-width="1.5"/>
-						<path d="M12 16v-4" stroke="var(--color-accent)" stroke-width="1.5" stroke-linecap="round"/>
-						<path d="M12 8h.01" stroke="var(--color-accent)" stroke-width="1.5" stroke-linecap="round"/>
+						<path d="M12 2a10 10 0 100 20A10 10 0 0012 2z" stroke="var(--color-accent)" stroke-width="1.5"/>
+						<path d="M8 12h8M12 8v8" stroke="var(--color-accent)" stroke-width="1.5" stroke-linecap="round"/>
+						<circle cx="12" cy="12" r="3" stroke="var(--color-accent)" stroke-width="1.5"/>
 					</svg>
 				</div>
-				<h3>Reflect</h3>
-				<p>Open Claude Desktop and start a reflection session. innerthread exposes your data via MCP, using your existing Claude subscription. No API costs.</p>
+				<h3>Local AI processes everything</h3>
+				<p>Conversations are segmented, topics extracted, sentiment scored, and embedded using all-MiniLM-L6-v2 (384D). Runs on your machine. No data leaves.</p>
 			</div>
 
 			<div class="step-connector" aria-hidden="true">
@@ -73,12 +72,31 @@
 				<div class="step-number">04</div>
 				<div class="step-icon">
 					<svg width="32" height="32" viewBox="0 0 24 24" fill="none">
-						<path d="M12 20h9" stroke="var(--color-teal)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-						<path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z" stroke="var(--color-teal)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+						<circle cx="11" cy="11" r="8" stroke="var(--color-teal)" stroke-width="1.5"/>
+						<path d="M21 21l-4.35-4.35" stroke="var(--color-teal)" stroke-width="1.5" stroke-linecap="round"/>
+						<path d="M8 11h6M11 8v6" stroke="var(--color-teal)" stroke-width="1.5" stroke-linecap="round"/>
 					</svg>
 				</div>
-				<h3>Write Back</h3>
-				<p>Reflections and insights are saved back to your Obsidian vault, enriching your notes with evidence from what you actually said.</p>
+				<h3>Reflect with Claude Desktop</h3>
+				<p>retrace exposes 13 MCP tools to Claude Desktop. Search by keyword or meaning. Pull up a person's full history. Uses your existing Claude Pro subscription.</p>
+			</div>
+
+			<div class="step-connector" aria-hidden="true">
+				<svg width="40" height="2" viewBox="0 0 40 2">
+					<line x1="0" y1="1" x2="40" y2="1" stroke="var(--color-border-light)" stroke-width="1" stroke-dasharray="4 4"/>
+				</svg>
+			</div>
+
+			<div class="step reveal reveal-delay-5">
+				<div class="step-number">05</div>
+				<div class="step-icon">
+					<svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+						<path d="M12 20h9" stroke="var(--color-accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+						<path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z" stroke="var(--color-accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+					</svg>
+				</div>
+				<h3>Write back to Obsidian</h3>
+				<p>Insights write to your vault as callout blocks with source evidence. Always preview before any changes are written.</p>
 			</div>
 		</div>
 	</div>
@@ -111,9 +129,9 @@
 
 	.step {
 		flex: 1;
-		max-width: 240px;
+		max-width: 200px;
 		text-align: center;
-		padding: var(--space-xl);
+		padding: var(--space-xl) var(--space-md);
 	}
 
 	.step-number {
@@ -145,7 +163,7 @@
 	}
 
 	h3 {
-		font-size: 1.15rem;
+		font-size: 1.05rem;
 		font-weight: 600;
 		margin-bottom: var(--space-sm);
 		letter-spacing: -0.01em;
@@ -153,7 +171,7 @@
 
 	.step p {
 		color: var(--color-text-muted);
-		font-size: 0.9rem;
+		font-size: 0.875rem;
 		line-height: 1.6;
 	}
 
@@ -164,7 +182,7 @@
 		flex-shrink: 0;
 	}
 
-	@media (max-width: 900px) {
+	@media (max-width: 1000px) {
 		.steps {
 			flex-direction: column;
 			align-items: center;

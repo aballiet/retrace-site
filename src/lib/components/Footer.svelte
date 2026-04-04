@@ -9,17 +9,18 @@
 						<path d="M12 4v16" stroke="var(--color-teal)" stroke-width="1.5" stroke-linecap="round"/>
 						<path d="M16 6c-2 4-2 8 0 12" stroke="var(--color-accent-light)" stroke-width="1.5" stroke-linecap="round"/>
 					</svg>
-					<span>innerthread</span>
+					<span>retrace</span>
 				</a>
-				<p>Your scattered conversations, rewoven into self-knowledge.</p>
+				<p>Your conversations contain more than you remember.</p>
 			</div>
 
 			<div class="footer-links">
 				<div class="footer-col">
 					<h4>Product</h4>
 					<a href="#how-it-works">How It Works</a>
+					<a href="#features">Features</a>
 					<a href="#privacy">Privacy</a>
-					<a href="#get-started">Get Started</a>
+					<a href="#download">Download</a>
 				</div>
 				<div class="footer-col">
 					<h4>Community</h4>
@@ -35,7 +36,7 @@
 		</div>
 
 		<div class="footer-bottom">
-			<p>Made with care for people who reflect.</p>
+			<p>Made for people who think carefully.</p>
 		</div>
 	</div>
 </footer>

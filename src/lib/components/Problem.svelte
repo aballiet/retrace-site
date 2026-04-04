@@ -5,68 +5,69 @@
 <section class="problem">
 	<div class="container">
 		<div class="problem-content" use:inview>
-			<h2 class="reveal">Your conversations are <span class="highlight">everywhere.</span></h2>
+			<h2 class="reveal">Your thinking is scattered<br /><span class="highlight">across platforms that don't talk.</span></h2>
 			<p class="reveal reveal-delay-1">
-				Career breakthroughs discussed in ChatGPT. Relationship reflections in WhatsApp.
-				Health goals mapped out in Claude. Fragments of insight scattered across Obsidian notes.
+				You work through a career decision in ChatGPT. You vent to a friend on WhatsApp.
+				You map out a health goal with Claude. Each contains real insight. None of them connect.
 			</p>
 			<p class="reveal reveal-delay-2">
-				No tool connects them. Your journal has gaps. Your notes lack context.
-				And every existing app starts from a blank page. None of them ingest
-				<em>what you actually said.</em>
+				Existing journaling apps start from a blank page. You have to remember to journal,
+				then type it all again. retrace starts from <em>what you actually said.</em>
 			</p>
 		</div>
 
 		<div class="platforms" use:inview>
-			<div class="platform reveal reveal-delay-1">
-				<div class="platform-icon">
-					<svg width="28" height="28" viewBox="0 0 24 24" fill="none">
-						<path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-					</svg>
+			<div class="platform-group reveal reveal-delay-1">
+				<div class="group-label">Auto-sync via Chrome</div>
+				<div class="group-items">
+					<div class="platform">
+						<div class="platform-icon">
+							<svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+								<path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+							</svg>
+						</div>
+						<span>ChatGPT</span>
+					</div>
+					<div class="platform">
+						<div class="platform-icon">
+							<svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+								<path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+							</svg>
+						</div>
+						<span>Claude</span>
+					</div>
 				</div>
-				<span>ChatGPT</span>
-			</div>
-			<div class="platform reveal reveal-delay-2">
-				<div class="platform-icon">
-					<svg width="28" height="28" viewBox="0 0 24 24" fill="none">
-						<path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-					</svg>
-				</div>
-				<span>Claude</span>
-			</div>
-			<div class="platform reveal reveal-delay-3">
-				<div class="platform-icon">
-					<svg width="28" height="28" viewBox="0 0 24 24" fill="none">
-						<path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-					</svg>
-				</div>
-				<span>WhatsApp</span>
-			</div>
-			<div class="platform reveal reveal-delay-4">
-				<div class="platform-icon">
-					<svg width="28" height="28" viewBox="0 0 24 24" fill="none">
-						<path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-					</svg>
-				</div>
-				<span>Messenger</span>
-			</div>
-			<div class="platform reveal reveal-delay-4">
-				<div class="platform-icon">
-					<svg width="28" height="28" viewBox="0 0 24 24" fill="none">
-						<path d="M14.5 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V7.5L14.5 2z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-						<path d="M14 2v6h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-					</svg>
-				</div>
-				<span>Obsidian</span>
 			</div>
 
-			<div class="connector reveal reveal-delay-4">
+			<div class="platform-group reveal reveal-delay-2">
+				<div class="group-label">File import</div>
+				<div class="group-items">
+					<div class="platform">
+						<div class="platform-icon">
+							<svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+								<path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+							</svg>
+						</div>
+						<span>WhatsApp</span>
+					</div>
+					<div class="platform">
+						<div class="platform-icon">
+							<svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+								<path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+							</svg>
+						</div>
+						<span>Messenger</span>
+					</div>
+				</div>
+			</div>
+
+			<div class="connector reveal reveal-delay-3">
 				<svg width="40" height="40" viewBox="0 0 40 40" fill="none">
 					<path d="M8 20h24M24 12l8 8-8 8" stroke="var(--color-accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 				</svg>
 			</div>
 
-			<div class="platform platform-result reveal reveal-delay-4">
+			<div class="platform platform-result reveal reveal-delay-3">
 				<div class="platform-icon result-icon">
 					<svg width="28" height="28" viewBox="0 0 24 24" fill="none">
 						<circle cx="12" cy="12" r="10" stroke="var(--color-accent)" stroke-width="1.5"/>
@@ -75,7 +76,7 @@
 						<path d="M16 6c-2 4-2 8 0 12" stroke="var(--color-accent-light)" stroke-width="1.5" stroke-linecap="round"/>
 					</svg>
 				</div>
-				<span>innerthread</span>
+				<span>retrace</span>
 			</div>
 		</div>
 	</div>
@@ -122,8 +123,28 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		gap: var(--space-lg);
+		gap: var(--space-xl);
 		flex-wrap: wrap;
+	}
+
+	.platform-group {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: var(--space-md);
+	}
+
+	.group-label {
+		font-size: 0.75rem;
+		font-weight: 600;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+		color: var(--color-text-faint);
+	}
+
+	.group-items {
+		display: flex;
+		gap: var(--space-lg);
 	}
 
 	.platform {
@@ -176,7 +197,7 @@
 
 	@media (max-width: 768px) {
 		.platforms {
-			gap: var(--space-md);
+			gap: var(--space-lg);
 		}
 
 		.platform-icon {

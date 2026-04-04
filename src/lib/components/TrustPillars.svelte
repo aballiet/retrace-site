@@ -16,36 +16,37 @@
 						<path d="M9 12l2 2 4-4" stroke="var(--color-accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 					</svg>
 				</div>
-				<h3>Your data stays yours.</h3>
+				<h3>Your data never leaves your machine.</h3>
 				<p>
-					Everything lives in a SQLite database on your machine. No cloud sync, no accounts,
-					no telemetry. Your raw conversations are never sent anywhere. Analysis happens
-					locally or through your own Claude sessions.
+					retrace runs entirely on your Mac. No cloud sync. No accounts. No telemetry.
+					The Chrome extension reads conversations from your browser and writes them to
+					a local SQLite database. That is the full data path.
 				</p>
 				<div class="pillar-detail">
-					<code>~/innerthread/data.db</code>
-					<span>That's it. One file. Your file.</span>
+					<code>~/Library/Application Support/retrace/data.db</code>
+					<span>One file. Your file.</span>
 				</div>
 			</div>
 
 			<div class="pillar reveal reveal-delay-2">
 				<div class="pillar-icon">
 					<svg width="36" height="36" viewBox="0 0 24 24" fill="none">
-						<rect x="2" y="3" width="20" height="14" rx="2" stroke="var(--color-teal)" stroke-width="1.5"/>
-						<path d="M8 21h8" stroke="var(--color-teal)" stroke-width="1.5" stroke-linecap="round"/>
-						<path d="M12 17v4" stroke="var(--color-teal)" stroke-width="1.5" stroke-linecap="round"/>
-						<path d="M7 8h3M7 11h5" stroke="var(--color-teal)" stroke-width="1.5" stroke-linecap="round"/>
-						<circle cx="16" cy="10" r="2" stroke="var(--color-teal)" stroke-width="1.5"/>
+						<rect x="3" y="3" width="18" height="14" rx="2" stroke="var(--color-teal)" stroke-width="1.5"/>
+						<path d="M3 7h18" stroke="var(--color-teal)" stroke-width="1.5"/>
+						<circle cx="6.5" cy="5" r="0.75" fill="var(--color-teal)"/>
+						<circle cx="9" cy="5" r="0.75" fill="var(--color-teal)"/>
+						<path d="M8 21h8M12 17v4" stroke="var(--color-teal)" stroke-width="1.5" stroke-linecap="round"/>
+						<path d="M7 11h5M7 14h3" stroke="var(--color-teal)" stroke-width="1.5" stroke-linecap="round"/>
 					</svg>
 				</div>
-				<h3>Your tools, enhanced.</h3>
+				<h3>Native macOS, not Electron.</h3>
 				<p>
-					innerthread doesn't replace anything. It makes your existing tools smarter.
-					Reflect in Claude Desktop using MCP with your Pro subscription.
-					Write back insights to your Obsidian vault. No new app to learn.
+					retrace is built with Tauri v2. It uses a fraction of the memory Electron apps
+					consume, starts faster, and integrates properly with macOS. Standard .dmg install.
+					Nothing unusual in your system.
 				</p>
 				<div class="pillar-detail">
-					<span>Works with Claude Desktop, Obsidian, and your existing workflow.</span>
+					<span>Tauri v2 &middot; Rust &middot; SQLite &middot; sqlite-vec</span>
 				</div>
 			</div>
 
@@ -57,12 +58,11 @@
 				</div>
 				<h3>Open source, forever.</h3>
 				<p>
-					MIT licensed. No vendor lock-in. Your self-reflection infrastructure
-					shouldn't be a SaaS product with a subscription fee. Fork it, extend it,
-					run it your way. Your data in open formats, always exportable.
+					MIT licensed. No vendor lock-in. Read the code, audit the Chrome extension,
+					fork it, extend it. Your reflection infrastructure should not be a SaaS black box.
 				</p>
 				<div class="pillar-detail">
-					<span>100% user-supported. No VC funding. No growth hacks.</span>
+					<span>MIT licensed &middot; No VC funding &middot; No growth targets</span>
 				</div>
 			</div>
 		</div>
@@ -139,7 +139,7 @@
 
 	.pillar-detail code {
 		font-family: var(--font-mono);
-		font-size: 0.8rem;
+		font-size: 0.78rem;
 		color: var(--color-teal);
 		background: var(--color-teal-glow);
 		padding: 0.2em 0.5em;
