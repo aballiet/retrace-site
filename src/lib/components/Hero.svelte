@@ -16,9 +16,9 @@
 
 	<div class="container hero-content">
 		<div class="hero-text" use:inview={{ threshold: 0.1 }}>
-			<p class="hero-tag reveal">Native macOS App &middot; Local-first &middot; Open Source</p>
+			<p class="hero-tag reveal">Your data stays on your machine</p>
 			<h1 class="reveal reveal-delay-1">
-				Your conversations,<br /><span class="highlight">rewoven into self-knowledge.</span>
+				Rediscover your <span class="highlight">conversations.</span>
 			</h1>
 			<p class="hero-sub reveal reveal-delay-2">
 				Retrace connects your scattered conversations across every platform into one searchable, reflective space. Your data stays on your machine.
