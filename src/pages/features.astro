@@ -5,6 +5,9 @@ import MobileVision from '../components/MobileVision.astro';
 import { SearchExplainer } from '../components/animations/SearchExplainer';
 import { TimeCapsuleExplainer } from '../components/animations/TimeCapsuleExplainer';
 import { GraphExplainer } from '../components/animations/GraphExplainer';
+import { RiversExplainer } from '../components/animations/RiversExplainer';
+import { WriteBackExplainer } from '../components/animations/WriteBackExplainer';
+import { ScopeExplainer } from '../components/animations/ScopeExplainer';
 ---
 
 <BaseLayout title="Features - Retrace" description="Everything Retrace can do with your conversations. Search, network graph, time capsules, Claude chat, and more.">
@@ -181,6 +184,7 @@ import { GraphExplainer } from '../components/animations/GraphExplainer';
 				See where your attention goes and how it shifts. Discover patterns in who you
 				talk to and what you talk about.
 			</p>
+			<RiversExplainer client:visible />
 		</div>
 		<div class="feature-visual reveal reveal-delay-2">
 			<div class="mock-river">
@@ -233,6 +237,7 @@ import { GraphExplainer } from '../components/animations/GraphExplainer';
 				Reflections sync to Obsidian as structured callout blocks with source evidence.
 				Retrace makes your vault smarter, never replaces it. Your vault, your words, augmented.
 			</p>
+			<WriteBackExplainer client:visible />
 		</div>
 		<div class="feature-visual reveal reveal-delay-2">
 			<div class="mock-obsidian">
@@ -259,6 +264,7 @@ import { GraphExplainer } from '../components/animations/GraphExplainer';
 				conversations stay private, even from your own agents. Platform labels are automatic.
 				Topic labels are extracted by AI. Custom labels are yours.
 			</p>
+			<ScopeExplainer client:visible />
 		</div>
 		<div class="feature-visual reveal reveal-delay-2">
 			<div class="mock-labels">
