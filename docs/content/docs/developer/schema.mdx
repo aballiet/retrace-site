@@ -59,12 +59,12 @@ The database file is located at `~/Library/Application Support/retrace/retrace.d
 
 ### embeddings
 
-Vector embeddings for semantic search. Stored using the [sqlite-vec](https://github.com/asg017/sqlite-vec) extension.
+Vector embeddings for semantic search.
 
 | Column | Type | Description |
 |--------|------|-------------|
 | `id` | text | References segment ID |
-| `embedding` | blob | 384-dimensional float vector |
+| `embedding` | blob | Float vector |
 
 ### labels
 

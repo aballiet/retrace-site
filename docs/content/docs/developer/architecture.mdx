@@ -45,7 +45,7 @@ SQLite database
     |    Local LLM (summarization, topics, sentiment)
     |        |
     |        v
-    |    Embeddings (384D vectors, sqlite-vec)
+    |    Embeddings (vector search)
     |
     +--> React frontend (read + display)
     |
@@ -62,7 +62,7 @@ SQLite database
 
 **Drizzle ORM**: Database access uses [Drizzle](https://orm.drizzle.team) for type-safe queries and schema migrations.
 
-**sqlite-vec**: Vector search uses the [sqlite-vec](https://github.com/asg017/sqlite-vec) extension for in-process embedding similarity search. No external vector database.
+**Vector search**: Embedding similarity search runs in-process within SQLite. No external vector database.
 
 **MCP integration**: The MCP server exposes conversation data as tools that Claude Desktop (or any MCP client) can call. It runs as a stdio server.
 
