@@ -1,0 +1,149 @@
+---
+import Glyph from '../Glyph.astro';
+import LogoMark from '../brand/LogoMark.astro';
+
+/** Hub-and-spoke hero visual: 8 platform nodes flowing into a central hub. */
+const C = 230;
+const R = 184;
+const items: [string, number][] = [
+	['spotify', -90],
+	['whatsapp', -45],
+	['chatgpt', 0],
+	['claude', 45],
+	['calendar', 90],
+	['instagram', 135],
+	['imessage', 180],
+	['obsidian', -135],
+];
+
+const nodes = items.map(([name, deg], i) => {
+	const a = (deg * Math.PI) / 180;
+	const cx = C + R * Math.cos(a);
+	const cy = C + R * Math.sin(a);
+	return {
+		name,
+		cx,
+		cy,
+		leftPct: ((cx / 460) * 100).toFixed(2),
+		topPct: ((cy / 460) * 100).toFixed(2),
+		delay: (i * 0.22).toFixed(2),
+	};
+});
+---
+
+<div class="hub" aria-hidden="true">
+	<svg viewBox="0 0 460 460" class="hub-lines">
+		{
+			nodes.map((node) => (
+				<>
+					<line
+						x1={node.cx}
+						y1={node.cy}
+						x2={C}
+						y2={C}
+						stroke="var(--color-border-light)"
+						stroke-width="1.5"
+						opacity="0.55"
+					/>
+					<line
+						class="hub-flow rt-anim"
+						x1={node.cx}
+						y1={node.cy}
+						x2={C}
+						y2={C}
+						stroke={`var(--platform-${node.name})`}
+						stroke-width="2.5"
+						stroke-linecap="round"
+						stroke-dasharray="2.5 15.5"
+						style={`animation-delay:${node.delay}s`}
+					/>
+				</>
+			))
+		}
+	</svg>
+
+	{
+		nodes.map((node) => (
+			<div
+				class="hub-chip"
+				style={`left:${node.leftPct}%;top:${node.topPct}%;`}
+			>
+				<Glyph name={node.name} size={25} />
+			</div>
+		))
+	}
+
+	<div class="hub-core rt-core-glow">
+		<LogoMark size={62} variant="mono" color="#fff" />
+	</div>
+	<span class="hub-label">your context layer</span>
+</div>
+
+<style>
+	.hub {
+		position: relative;
+		width: 100%;
+		max-width: 460px;
+		margin: 0 auto;
+		aspect-ratio: 1 / 1;
+	}
+	.hub-lines {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		overflow: visible;
+	}
+	.hub-flow {
+		animation: rt-flow 1.4s linear infinite;
+	}
+	.hub-chip {
+		position: absolute;
+		transform: translate(-50%, -50%);
+		width: 58px;
+		height: 58px;
+		border-radius: 16px;
+		background: var(--color-surface);
+		border: 1px solid var(--color-border);
+		box-shadow: var(--shadow-sm);
+		display: grid;
+		place-items: center;
+		z-index: 2;
+		transition: transform var(--duration-fast) var(--ease-out), box-shadow var(--duration-fast) var(--ease-out);
+	}
+	.hub-chip:hover {
+		transform: translate(-50%, -50%) scale(1.08);
+		box-shadow: var(--shadow-md);
+	}
+	.hub-core {
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+		width: 106px;
+		height: 106px;
+		border-radius: 50%;
+		background: var(--color-accent);
+		display: grid;
+		place-items: center;
+		z-index: 3;
+	}
+	.hub-label {
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, 66px);
+		font-family: var(--font-mono);
+		font-size: 10.5px;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+		color: var(--color-text-muted);
+		background: var(--color-surface);
+		border: 1px solid var(--color-border);
+		padding: 6px 13px;
+		border-radius: var(--radius-full);
+		box-shadow: var(--shadow-xs);
+		white-space: nowrap;
+		z-index: 3;
+	}
+</style>

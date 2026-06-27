@@ -6,11 +6,13 @@ import '../styles/global.css';
 interface Props {
 	title?: string;
 	description?: string;
+	active?: '' | 'features' | 'sources' | 'privacy' | 'get-started';
 }
 
 const {
 	title = 'Retrace - your personal context layer',
 	description = 'Retrace - a local-first personal context layer. Reads from ChatGPT, Claude, WhatsApp, Obsidian, and more. Your data stays on your machine. You choose what leaves.',
+	active = '',
 } = Astro.props;
 ---
 
@@ -28,6 +30,12 @@ const {
 		<meta name="twitter:title" content="Retrace" />
 		<meta name="twitter:description" content="Your life is scattered across apps that don't talk to each other. Retrace connects all of them." />
 		<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+			rel="stylesheet"
+		/>
 		<title>{title}</title>
 		<!-- PostHog Analytics -->
 		<script>
@@ -39,7 +47,7 @@ const {
 		</script>
 	</head>
 	<body>
-		<Nav />
+		<Nav active={active} />
 		<main>
 			<slot />
 		</main>

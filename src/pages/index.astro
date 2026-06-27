@@ -1,388 +1,568 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Hero from '../components/Hero.astro';
-import SocialProof from '../components/SocialProof.astro';
+import LogoMark from '../components/brand/LogoMark.astro';
+import Glyph from '../components/Glyph.astro';
+import HubAndSpoke from '../components/landing/HubAndSpoke.astro';
+import Rivers from '../components/landing/Rivers.astro';
 import InteractiveDemoSection from '../components/InteractiveDemoSection.astro';
-import Problem from '../components/Problem.astro';
-import Compounding from '../components/Compounding.astro';
-import OpenSource from '../components/OpenSource.astro';
+
+const sources = {
+	ext: [
+		['ChatGPT', 'chatgpt'],
+		['Claude', 'claude'],
+	],
+	import: [
+		['WhatsApp', 'whatsapp'],
+		['Messenger', 'messenger'],
+		['Instagram', 'instagram'],
+		['Keep', 'keep'],
+		['Calendar', 'calendar'],
+	],
+	sync: [
+		['WhatsApp', 'whatsapp'],
+		['Obsidian', 'obsidian'],
+	],
+};
+
+const people = [
+	{ name: 'Mae Okafor', platform: 'imessage', recently: 'the move', tie: 'Inner circle' },
+	{ name: 'Hugo Bellini', platform: 'whatsapp', recently: 'career', tie: 'Inner circle' },
+	{ name: 'Dad', platform: 'imessage', recently: 'Sunday call', tie: 'Active' },
+];
+
+const stats: [string, string][] = [
+	['10', 'sources'],
+	['$0', 'API costs'],
+	['MIT', 'licensed'],
+	['100%', 'your data'],
+];
 ---
 
-<BaseLayout>
+<BaseLayout title="Retrace - rediscover your conversations">
+	<!-- ============ HERO ============ -->
+	<section class="hero" id="top">
+		<div class="hero-grid">
+			<div class="hero-text" data-inview>
+				<div class="pill reveal">
+					<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--color-teal)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+					<span>your data is stored locally. you choose what leaves.</span>
+				</div>
+				<h1 class="hero-h1 reveal reveal-delay-1">
+					Retrace your
+					<span class="rotating-word" id="rotating-word">conversations.</span>
+				</h1>
+				<p class="hero-sub reveal reveal-delay-2">
+					Your chats, notes, and music are scattered across a dozen apps. Retrace
+					pulls them into <strong>one private context layer</strong>. Searchable, and
+					entirely on your Mac.
+				</p>
+				<div class="hero-buttons reveal reveal-delay-3">
+					<a href="/#download" class="btn btn-primary">
+						<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16.365 1.43c0 1.14-.493 2.27-1.177 3.08-.744.9-1.99 1.57-2.987 1.57-.12 0-.23-.02-.3-.03-.01-.06-.04-.22-.04-.39 0-1.15.572-2.27 1.206-2.98.804-.94 2.142-1.64 3.248-1.68.03.13.05.28.05.43zm4.565 15.71c-.03.07-.463 1.58-1.518 3.12-.945 1.34-1.94 2.71-3.43 2.71-1.517 0-1.9-.88-3.63-.88-1.698 0-2.302.91-3.67.91-1.377 0-2.332-1.26-3.428-2.8-1.287-1.82-2.323-4.63-2.323-7.28 0-4.28 2.797-6.55 5.552-6.55 1.448 0 2.675.95 3.6.95.865 0 2.222-1.01 3.902-1.01.613 0 2.886.06 4.374 2.19-.13.09-2.383 1.37-2.383 4.19 0 3.26 2.854 4.42 2.955 4.45z"/></svg>
+						Download for Mac
+					</a>
+					<a href="#demo" class="btn btn-secondary">
+						<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="6 4 20 12 6 20 6 4"/></svg>
+						See it live
+					</a>
+				</div>
+				<p class="hero-caption reveal reveal-delay-4">free · runs entirely on your Mac · no account</p>
+			</div>
 
-<Hero />
-<SocialProof />
-
-<!-- Feature showcase: embedded visual examples -->
-<section class="showcase">
-	<div class="container">
-		<div class="section-header" data-inview>
-			<h2 class="reveal">Explore, rediscover, <span class="highlight">reflect.</span></h2>
-			<p class="reveal reveal-delay-1">
-				Browse old conversations. Find forgotten moments. See patterns across platforms.
-			</p>
+			<div class="hero-visual reveal" data-inview>
+				<HubAndSpoke />
+			</div>
 		</div>
+	</section>
 
-		<div class="showcase-grid" data-inview>
-			<a href="/features#search" class="showcase-card showcase-search reveal reveal-delay-1">
-				<span class="showcase-tag">Search</span>
-				<h3>Search across every conversation</h3>
-				<p class="showcase-desc">Semantic search across every platform. Find conversations by meaning, not just keywords.</p>
-				<div class="showcase-visual">
-					<div class="mini-search">
-						<div class="mini-bar">
-							<svg width="12" height="12" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2"/><path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+	<!-- ============ SHOWCASE GRID ============ -->
+	<section class="showcase">
+		<div class="wrap">
+			<div class="section-head" data-inview>
+				<div class="eyebrow eyebrow-teal reveal">what you can do</div>
+				<h2 class="reveal reveal-delay-1">Explore, rediscover, <span class="accent">reflect.</span></h2>
+				<p class="reveal reveal-delay-2">Browse old conversations. Find forgotten moments. See patterns across platforms.</p>
+			</div>
+
+			<div class="showcase-grid" data-inview>
+				<a href="/features#search" class="show-card reveal">
+					<span class="chip chip-teal">Search</span>
+					<h3>Search across every conversation</h3>
+					<p>Semantic search across every platform. Find conversations by meaning, not just keywords.</p>
+					<div class="show-mini">
+						<div class="mini-search">
+							<svg width="13" height="13" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
 							restaurant recommendation
 						</div>
-						<div class="mini-result"><span class="mini-platform mp-wa">WhatsApp</span> "You have to try Maison Plisson"</div>
-						<div class="mini-result"><span class="mini-platform mp-gpt">ChatGPT</span> "Based on your preferences..."</div>
-						<div class="mini-result"><span class="mini-platform mp-msg">Messenger</span> "We ended up at that place"</div>
-						<div class="mini-result"><span class="mini-platform mp-ig">Instagram</span> "Saved that reel with the menu"</div>
-						<div class="mini-result"><span class="mini-platform mp-keep">Keep</span> "Paris food list: Maison Plisson, Le..."</div>
+						<div class="mini-row"><span class="tag" style="color:var(--platform-whatsapp);background:rgba(37,211,102,.1);">WhatsApp</span>"You have to try Maison Plisson"</div>
+						<div class="mini-row"><span class="tag" style="color:var(--platform-chatgpt);background:rgba(16,163,127,.1);">ChatGPT</span>"Based on your preferences..."</div>
+						<div class="mini-row"><span class="tag" style="color:var(--platform-keep);background:rgba(251,188,4,.15);">Keep</span>"Paris food list: Maison Plisson..."</div>
 					</div>
-				</div>
-			</a>
+				</a>
 
-			<a href="/features#network" class="showcase-card showcase-graph reveal reveal-delay-2">
-				<span class="showcase-tag">Network</span>
-				<h3>See your relationships evolve</h3>
-				<p class="showcase-desc">Force-directed graph with tie-strength scoring and timelapse animation.</p>
-				<div class="showcase-visual">
-					<svg viewBox="30 35 240 170" class="mini-graph">
-						<line x1="150" y1="110" x2="80" y2="60" stroke="var(--color-accent)" stroke-width="2" opacity="0.6"/>
-						<line x1="150" y1="110" x2="220" y2="70" stroke="var(--color-accent)" stroke-width="1.5" opacity="0.4"/>
-						<line x1="150" y1="110" x2="100" y2="170" stroke="var(--color-teal)" stroke-width="2.5" opacity="0.7"/>
-						<line x1="150" y1="110" x2="230" y2="160" stroke="var(--color-accent-light)" stroke-width="1" opacity="0.3"/>
-						<line x1="150" y1="110" x2="60" y2="130" stroke="var(--color-teal)" stroke-width="1.5" opacity="0.5"/>
-						<line x1="80" y1="60" x2="60" y2="130" stroke="var(--color-border-light)" stroke-width="1" opacity="0.3"/>
-						<line x1="220" y1="70" x2="230" y2="160" stroke="var(--color-border-light)" stroke-width="1" opacity="0.2"/>
-						<circle cx="150" cy="110" r="14" fill="var(--color-accent)" opacity="0.9"/>
-						<text x="150" y="114" text-anchor="middle" fill="white" font-size="8" font-weight="600">You</text>
-						<circle cx="80" cy="60" r="10" fill="var(--color-teal)" opacity="0.8"/>
-						<text x="80" y="44" text-anchor="middle" fill="var(--color-text-muted)" font-size="7.5">Sarah</text>
-						<circle cx="100" cy="170" r="11" fill="var(--color-teal)" opacity="0.8"/>
-						<text x="100" y="190" text-anchor="middle" fill="var(--color-text-muted)" font-size="7.5">Tom</text>
-						<circle cx="220" cy="70" r="8" fill="var(--color-accent-light)" opacity="0.6"/>
-						<text x="220" y="56" text-anchor="middle" fill="var(--color-text-faint)" font-size="7">Maya</text>
-						<circle cx="60" cy="130" r="7" fill="var(--color-accent-light)" opacity="0.5"/>
-						<text x="45" y="125" text-anchor="middle" fill="var(--color-text-faint)" font-size="7">Alex</text>
-						<circle cx="230" cy="160" r="5" fill="var(--color-text-faint)" opacity="0.4"/>
-						<text x="252" y="163" text-anchor="middle" fill="var(--color-text-faint)" font-size="6.5">Jules</text>
-					</svg>
-					<div class="mini-graph-legend">
-						<span class="legend-item"><span class="legend-dot dot-inner"></span> Inner circle</span>
-						<span class="legend-item"><span class="legend-dot dot-active"></span> Active</span>
-						<span class="legend-item"><span class="legend-dot dot-extended"></span> Extended</span>
+				<a href="/features#network" class="show-card reveal reveal-delay-1">
+					<span class="chip chip-teal">Network</span>
+					<h3>See your relationships evolve</h3>
+					<p>Force-directed graph with tie-strength scoring and timelapse animation.</p>
+					<div class="show-mini center">
+						<svg viewBox="30 35 240 170" class="mini-graph">
+							<line x1="150" y1="110" x2="80" y2="60" stroke="var(--color-accent)" stroke-width="2" opacity="0.6"/>
+							<line x1="150" y1="110" x2="220" y2="70" stroke="var(--color-accent)" stroke-width="1.5" opacity="0.4"/>
+							<line x1="150" y1="110" x2="100" y2="170" stroke="var(--color-teal)" stroke-width="2.5" opacity="0.7"/>
+							<line x1="150" y1="110" x2="60" y2="130" stroke="var(--color-teal)" stroke-width="1.5" opacity="0.5"/>
+							<circle cx="150" cy="110" r="14" fill="var(--color-accent)" opacity="0.9"/><text x="150" y="114" text-anchor="middle" fill="white" font-size="8" font-weight="600">You</text>
+							<circle cx="80" cy="60" r="10" fill="var(--color-teal)" opacity="0.8"/><text x="80" y="44" text-anchor="middle" fill="var(--color-text-muted)" font-size="7.5">Sarah</text>
+							<circle cx="100" cy="170" r="11" fill="var(--color-teal)" opacity="0.8"/><text x="100" y="190" text-anchor="middle" fill="var(--color-text-muted)" font-size="7.5">Tom</text>
+							<circle cx="220" cy="70" r="8" fill="var(--color-accent-light)" opacity="0.6"/><text x="220" y="56" text-anchor="middle" fill="var(--color-text-faint)" font-size="7">Maya</text>
+							<circle cx="60" cy="130" r="7" fill="var(--color-accent-light)" opacity="0.5"/><text x="45" y="125" text-anchor="middle" fill="var(--color-text-faint)" font-size="7">Alex</text>
+						</svg>
+						<div class="legend">
+							<span><span class="dot" style="background:var(--color-teal);"></span>Inner circle</span>
+							<span><span class="dot" style="background:var(--color-accent-light);"></span>Active</span>
+							<span><span class="dot" style="background:var(--color-text-faint);opacity:.5;"></span>Extended</span>
+						</div>
 					</div>
-				</div>
-			</a>
+				</a>
 
-			<a href="/features#capsules" class="showcase-card showcase-capsule reveal reveal-delay-3">
-				<span class="showcase-tag">Capsules</span>
-				<h3>This time last year</h3>
-				<p class="showcase-desc">AI-powered then-and-now comparisons. See what changed and what you forgot.</p>
-				<div class="showcase-visual">
-					<div class="mini-capsule">
-						<div class="capsule-column">
-							<div class="capsule-date">Apr 2025</div>
-							<div class="capsule-entry">
-								<span class="capsule-source mp-gpt">ChatGPT</span>
-								"Should I quit? I keep going back and forth"
-							</div>
-							<div class="capsule-entry">
-								<span class="capsule-source mp-wa">WhatsApp</span>
-								"I'm scared to leave my job honestly"
-							</div>
+				<a href="/features#capsules" class="show-card reveal reveal-delay-2">
+					<span class="chip chip-teal">Capsules</span>
+					<h3>This time last year</h3>
+					<p>AI-powered then-and-now comparisons. See what changed and what you forgot.</p>
+					<div class="show-mini capsule">
+						<div class="capsule-col">
+							<div class="mono-label">Apr 2025</div>
+							<div class="capsule-msg"><span class="tag" style="color:var(--platform-chatgpt);background:rgba(16,163,127,.1);">ChatGPT</span>"Should I quit? I keep going back and forth"</div>
 						</div>
-						<div class="capsule-arrow">
-							<svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-								<path d="M5 12h14M13 6l6 6-6 6" stroke="var(--color-accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-							</svg>
-						</div>
-						<div class="capsule-column">
-							<div class="capsule-date capsule-date-now">Apr 2026</div>
-							<div class="capsule-entry">
-								<span class="capsule-source mp-msg">Messenger</span>
-								"Six months in, the fear is completely gone"
-							</div>
-							<div class="capsule-entry">
-								<span class="capsule-source mp-gpt">ChatGPT</span>
-								"Help me plan my first hire"
-							</div>
+						<svg width="22" height="22" viewBox="0 0 24 24" fill="none" class="capsule-arrow"><path d="M5 12h14M13 6l6 6-6 6" stroke="var(--color-accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+						<div class="capsule-col">
+							<div class="mono-label accent">Apr 2026</div>
+							<div class="capsule-msg"><span class="tag" style="color:var(--platform-messenger);background:rgba(0,132,255,.1);">Messenger</span>"Six months in, the fear is completely gone"</div>
 						</div>
 					</div>
-				</div>
-			</a>
+				</a>
 
-			<a href="/features#chat" class="showcase-card showcase-chat reveal reveal-delay-4">
-				<span class="showcase-tag">Chat</span>
-				<h3>Reflect with Claude</h3>
-				<p class="showcase-desc">Claude sees only what you allow. Explore your history or reflect on it.</p>
-				<div class="showcase-visual">
-					<div class="mini-chat">
-						<div class="mini-user">What idea have I kept coming back to?</div>
-						<div class="mini-claude">
-							<div class="claude-text">One thread runs through 23 conversations across 8 months: building something of your own.</div>
-							<div class="claude-sources">
-								<span class="claude-source"><span class="mini-platform mp-gpt">ChatGPT</span> 12 conversations</span>
-								<span class="claude-source"><span class="mini-platform mp-wa">WhatsApp</span> 8 messages</span>
-								<span class="claude-source"><span class="mini-platform mp-msg">Messenger</span> 3 messages</span>
+				<a href="/features#mcp" class="show-card reveal reveal-delay-3">
+					<span class="chip chip-teal">Chat</span>
+					<h3>Reflect with Claude</h3>
+					<p>Claude sees only what you allow. Explore your history or reflect on it.</p>
+					<div class="show-mini">
+						<div class="chat-q">What idea have I kept coming back to?</div>
+						<div class="chat-a">
+							<div>One thread runs through 23 conversations across 8 months: building something of your own.</div>
+							<div class="chat-meta">
+								<span><span style="color:var(--platform-chatgpt);font-weight:600;">ChatGPT</span> 12 conversations</span>
+								<span><span style="color:var(--platform-whatsapp);font-weight:600;">WhatsApp</span> 8 messages</span>
 							</div>
 						</div>
-						<div class="mini-user">When did it start?</div>
-						<div class="mini-claude">
-							<div class="claude-text">The first mention was August 2025, right after your trip to Lisbon. You told Sarah "I think I want to build my own thing."</div>
-						</div>
 					</div>
-				</div>
-			</a>
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- ============ CONNECT THE DOTS ============ -->
+	<section class="narrative">
+		<div class="narrative-intro" data-inview>
+			<div class="eyebrow eyebrow-accent reveal">why this is different</div>
+			<h2 class="reveal reveal-delay-1">No app sees the full picture. <span class="accent">Retrace connects the dots.</span></h2>
+			<p class="reveal reveal-delay-2">Your life doesn't happen on one platform. A single decision might span a ChatGPT brainstorm, a WhatsApp conversation with a friend, and an Obsidian note where you planned next steps. Retrace is the only place where all three connect.</p>
 		</div>
 
-		<div class="showcase-cta" data-inview>
-			<a href="/features" class="reveal">See all features &rarr;</a>
-		</div>
-	</div>
-</section>
-
-<InteractiveDemoSection />
-<Compounding />
-<Problem />
-
-<!-- Privacy signal (lightweight) -->
-<section class="privacy-signal">
-	<div class="container">
-		<div class="signal-content" data-inview>
-			<h2 class="reveal">Your data. Your machine. <span class="highlight">No exceptions.</span></h2>
-			<div class="signal-grid reveal reveal-delay-1">
-				<div class="signal-item">
-					<svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-						<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="var(--color-accent)" stroke-width="1.5" stroke-linecap="round"/>
-					</svg>
-					<span>Your data stored locally. Always.</span>
-				</div>
-				<div class="signal-item">
-					<svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-						<path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22" stroke="var(--color-teal)" stroke-width="1.5" stroke-linecap="round"/>
-					</svg>
-					<span>Open source. MIT licensed.</span>
-				</div>
-				<div class="signal-item">
-					<svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-						<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" stroke="var(--color-accent-light)" stroke-width="1.5"/>
-						<line x1="1" y1="1" x2="23" y2="23" stroke="var(--color-accent-light)" stroke-width="1.5" stroke-linecap="round"/>
-					</svg>
-					<span>No telemetry. No tracking.</span>
+		<!-- Rediscovery -->
+		<div class="nrow" data-inview>
+			<div class="nrow-text reveal">
+				<div class="eyebrow eyebrow-accent">rediscovery</div>
+				<h3>It remembers what you forgot.</h3>
+				<p>An idea you mentioned once in January, forgot, then brought up again in April. Retrace sees the thread even when you don't. Quiet cards surface what was happening this time last year. Nothing nudges you, the insights simply wait until you come back.</p>
+			</div>
+			<div class="nrow-visual reveal reveal-delay-1">
+				<div class="insight-card">
+					<div class="insight-head"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg><span class="insight-eyebrow">this time last year</span></div>
+					<p class="insight-body">You and Mae spent weeks hunting for an apartment in Lisbon to finally live together, debating every neighborhood late into the night.</p>
+					<div class="insight-foot">
+						<span class="avatar" style="border-color:var(--platform-imessage);">M</span>
+						<span class="insight-foot-text">7 conversations across</span>
+						<span class="insight-glyphs">
+							<Glyph name="imessage" size={16} />
+							<Glyph name="whatsapp" size={16} />
+							<Glyph name="chatgpt" size={16} />
+						</span>
+					</div>
 				</div>
 			</div>
-			<a href="/privacy" class="signal-link reveal reveal-delay-2">Learn more about privacy &rarr;</a>
 		</div>
-	</div>
-</section>
 
-<OpenSource />
+		<!-- Life Rivers (flipped) -->
+		<div class="nrow flip" data-inview>
+			<div class="nrow-visual reveal">
+				<div class="surface-card">
+					<Rivers />
+				</div>
+			</div>
+			<div class="nrow-text reveal reveal-delay-1">
+				<div class="eyebrow eyebrow-accent">life rivers</div>
+				<h3>It shows the shape of your attention.</h3>
+				<p>Watch what you talked about flow over time, by person or by topic, as a living streamgraph. Wider streams are the weeks something really mattered.</p>
+			</div>
+		</div>
 
+		<!-- Network -->
+		<div class="nrow" data-inview>
+			<div class="nrow-text reveal">
+				<div class="eyebrow eyebrow-accent">network</div>
+				<h3>The people who shape you, over the years.</h3>
+				<p>Every relationship you live through is here, the close ones and the ones that drifted. Watch them grow, fade, and sometimes come back, across the years.</p>
+			</div>
+			<div class="nrow-visual reveal reveal-delay-1">
+				<div class="surface-card people-card">
+					{
+						people.map((p, i) => (
+							<div class:list={['person', { 'person-border': i > 0 }]}>
+								<span class="avatar" style={`border-color:var(--platform-${p.platform});`}>
+									{p.name.split(' ').map((w) => w[0]).join('').slice(0, 2)}
+								</span>
+								<div class="person-main">
+									<div class="person-name">{p.name}</div>
+									<div class="person-recent">recently: {p.recently}</div>
+								</div>
+								<span class="person-tie">{p.tie}</span>
+							</div>
+						))
+					}
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- ============ TWO REGISTERS ============ -->
+	<section class="registers">
+		<div class="wrap-narrow">
+			<div class="section-head" data-inview>
+				<div class="eyebrow eyebrow-muted reveal">how it stays honest</div>
+				<h2 class="reveal reveal-delay-1">Every reflection traces back to a real message.</h2>
+			</div>
+			<div class="registers-grid" data-inview>
+				<div class="reg-insight reveal">
+					<div class="reg-label">the reflection</div>
+					<div class="insight-card">
+						<div class="insight-head"><span class="sparkle">&#10022;</span><span class="insight-eyebrow">synthesized</span></div>
+						<p class="insight-body">For a month you and Mae slowly talked each other into a trip to Berlin, trading songs and venues until it felt real.</p>
+						<div class="reg-tags">
+							<span class="tag-pill positive">excited</span>
+							<span class="tag-pill neutral">the trip</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="reg-link reveal reveal-delay-1">
+					<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg>
+					<span>traces back</span>
+				</div>
+
+				<div class="reg-raw reveal reveal-delay-2">
+					<div class="reg-label">the evidence</div>
+					<div class="evidence">
+						<div class="evidence-card">
+							<div class="evidence-head"><Glyph name="whatsapp" size={14} /><span>Mae · WhatsApp</span><span class="evidence-time">Fri 11:02 PM</span></div>
+							<p>"ok this set is unreal, this has to be our soundtrack"</p>
+							<p class="evidence-link">[soundcloud.com/link]</p>
+						</div>
+						<div class="evidence-card">
+							<div class="evidence-head"><Glyph name="instagram" size={14} /><span>Mae · Instagram</span><span class="evidence-time">Wed 9:30 PM</span></div>
+							<p>"found a tiny club in kreuzberg we have to see 🕺"</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- ============ DEMO (real, preserved) ============ -->
+	<InteractiveDemoSection />
+
+	<!-- ============ SOURCES PREVIEW ============ -->
+	<section class="sources-preview">
+		<div class="wrap-narrow">
+			<div class="section-head" data-inview>
+				<div class="eyebrow eyebrow-accent reveal">your sources, your control</div>
+				<h2 class="reveal reveal-delay-1">You're sitting on years of insight.</h2>
+				<p class="reveal reveal-delay-2">Export your data, import it locally, and for the first time see the full picture. Your conversations become your journal, your timeline, your searchable memory.</p>
+			</div>
+			<div class="sources-grid" data-inview>
+				<div class="source-col reveal">
+					<div class="mono-label">browser extension</div>
+					{sources.ext.map(([name, p]) => <div class="source-row"><Glyph name={p} size={19} /><span>{name}</span></div>)}
+				</div>
+				<div class="source-col reveal reveal-delay-1">
+					<div class="mono-label">import</div>
+					{sources.import.map(([name, p]) => <div class="source-row"><Glyph name={p} size={19} /><span>{name}</span></div>)}
+				</div>
+				<div class="source-col reveal reveal-delay-2">
+					<div class="mono-label">live sync</div>
+					{sources.sync.map(([name, p]) => <div class="source-row"><Glyph name={p} size={19} /><span>{name}</span></div>)}
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- ============ PRIVACY BAND ============ -->
+	<section class="privacy-band">
+		<div class="privacy-watermark" aria-hidden="true">
+			<LogoMark size={520} variant="mono" color="#faf3ea" gradId="privacyWatermark" />
+		</div>
+		<div class="wrap-narrow privacy-inner">
+			<div class="privacy-head" data-inview>
+				<div class="eyebrow privacy-eyebrow reveal">privacy by architecture</div>
+				<h2 class="reveal reveal-delay-1">Intimate by default, not by promise.</h2>
+			</div>
+			<div class="privacy-grid" data-inview>
+				<div class="privacy-card reveal">
+					<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--color-terracotta-light)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+					<h3>Your data is stored locally</h3>
+					<p>Your conversations are structured and indexed on your own machine. No telemetry, no tracking.</p>
+				</div>
+				<div class="privacy-card reveal reveal-delay-1">
+					<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--color-terracotta-light)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+					<h3>You choose what leaves</h3>
+					<p>Deep reflection uses Claude, and it sees only what you allow. Labels decide exactly what's shared.</p>
+				</div>
+				<div class="privacy-card reveal reveal-delay-2">
+					<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--color-terracotta-light)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>
+					<h3>No engagement bait</h3>
+					<p>No badges, no red dots, no notifications. Open source, MIT licensed. Insights wait quietly until you return.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- ============ CTA ============ -->
+	<section class="cta" id="download">
+		<div class="cta-inner" data-inview>
+			<div class="cta-mark reveal">
+				<svg width="58" height="58" viewBox="0 0 100 100">
+					<defs>
+						<radialGradient id="sphCta" cx="0.36" cy="0.30" r="0.85"><stop offset="0" stop-color="#dd9059"/><stop offset="0.5" stop-color="#c8723a"/><stop offset="1" stop-color="#2f7a72"/></radialGradient>
+						<linearGradient id="ripCta" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c8723a"/><stop offset="1" stop-color="#3a8f85"/></linearGradient>
+					</defs>
+					<circle cx="50" cy="35" r="21" fill="url(#sphCta)"/>
+					<rect x="21" y="63" width="58" height="6" rx="3" fill="url(#ripCta)" opacity="0.72"/>
+					<rect x="28" y="74" width="44" height="4" rx="2" fill="#3a8f85" opacity="0.4"/>
+					<rect x="34" y="82" width="32" height="4" rx="2" fill="#3a8f85" opacity="0.22"/>
+				</svg>
+			</div>
+			<h2 class="reveal reveal-delay-1">The patterns are already there. Retrace just helps you see them.</h2>
+			<div class="cta-buttons reveal reveal-delay-2">
+				<a href="/#download" class="btn btn-primary">
+					<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16.365 1.43c0 1.14-.493 2.27-1.177 3.08-.744.9-1.99 1.57-2.987 1.57-.12 0-.23-.02-.3-.03-.01-.06-.04-.22-.04-.39 0-1.15.572-2.27 1.206-2.98.804-.94 2.142-1.64 3.248-1.68.03.13.05.28.05.43zm4.565 15.71c-.03.07-.463 1.58-1.518 3.12-.945 1.34-1.94 2.71-3.43 2.71-1.517 0-1.9-.88-3.63-.88-1.698 0-2.302.91-3.67.91-1.377 0-2.332-1.26-3.428-2.8-1.287-1.82-2.323-4.63-2.323-7.28 0-4.28 2.797-6.55 5.552-6.55 1.448 0 2.675.95 3.6.95.865 0 2.222-1.01 3.902-1.01.613 0 2.886.06 4.374 2.19-.13.09-2.383 1.37-2.383 4.19 0 3.26 2.854 4.42 2.955 4.45z"/></svg>
+					Download for Mac
+				</a>
+				<a href="#demo" class="btn btn-secondary">Open the demo</a>
+			</div>
+			<div class="cta-stats reveal reveal-delay-3">
+				{stats.map(([v, l]) => <div class="stat"><span class="stat-v">{v}</span><span class="stat-l">{l}</span></div>)}
+			</div>
+			<p class="cta-caption reveal reveal-delay-4">free · runs entirely on your Mac · macOS 12+ · MIT licensed</p>
+		</div>
+	</section>
+
+	<script>
+		function initRotator() {
+			const span = document.getElementById('rotating-word');
+			if (!span) return;
+			if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+			const words = ['conversations.', 'music.', 'journal.', 'growth.'];
+			let i = 0;
+			window.setInterval(() => {
+				span.style.opacity = '0';
+				span.style.transform = 'translateY(10px)';
+				window.setTimeout(() => {
+					i = (i + 1) % words.length;
+					span.textContent = words[i];
+					span.style.opacity = '1';
+					span.style.transform = 'translateY(0)';
+				}, 400);
+			}, 2600);
+		}
+		initRotator();
+		document.addEventListener('astro:page-load', initRotator);
+	</script>
+
+	<style>
+		.wrap { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+		.wrap-narrow { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+		/* shared section heads */
+		.section-head { text-align: center; max-width: 600px; margin: 0 auto var(--space-3xl); }
+		.section-head h2 { font-size: clamp(1.9rem, 4vw, 2.9rem); font-weight: 700; letter-spacing: -0.025em; line-height: 1.1; }
+		.section-head p { color: var(--color-text-muted); font-size: 1.1rem; margin-top: 14px; }
+		.accent { color: var(--color-accent); }
+
+		.eyebrow { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: var(--tracking-caps); margin-bottom: 14px; }
+		.eyebrow-teal { color: var(--color-teal); }
+		.eyebrow-accent { color: var(--color-accent); }
+		.eyebrow-muted { color: var(--color-text-muted); }
+
+		/* buttons */
+		.btn { display: inline-flex; align-items: center; gap: 9px; height: 50px; padding: 0 24px; border-radius: var(--radius-full); font-size: 15px; font-weight: 600; transition: transform var(--duration-fast) var(--ease-out), background var(--duration-fast) var(--ease-out), border-color var(--duration-fast) var(--ease-out); }
+		.btn-primary { background: var(--color-accent); color: var(--color-text-on-accent); box-shadow: var(--shadow-sm); }
+		.btn-primary:hover { transform: translateY(-1px); background: var(--color-accent-light); color: var(--color-text-on-accent); }
+		.btn-secondary { background: var(--color-surface); color: var(--color-text); border: 1px solid var(--color-border); box-shadow: var(--shadow-xs); padding: 0 22px; }
+		.btn-secondary:hover { transform: translateY(-1px); border-color: var(--color-border-light); color: var(--color-text); }
+
+		/* ---- HERO ---- */
+		.hero { position: relative; overflow: hidden; }
+		.hero-grid { max-width: 1180px; margin: 0 auto; padding: 88px 24px 84px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 460px); gap: 48px; align-items: center; }
+		.pill { display: inline-flex; align-items: center; gap: 9px; padding: 6px 14px; border-radius: var(--radius-full); background: var(--color-surface); border: 1px solid var(--color-border); margin-bottom: 26px; box-shadow: var(--shadow-xs); }
+		.pill span { font-size: 12.5px; font-weight: 500; color: var(--color-text-muted); }
+		.hero-h1 { font-size: clamp(2.6rem, 5.2vw, 4.2rem); font-weight: 700; letter-spacing: -0.04em; line-height: 1.0; color: var(--color-text); }
+		.rotating-word { background: var(--gradient-brand); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent; display: block; line-height: 1.12; padding-bottom: 0.08em; transition: opacity 0.4s var(--ease-out), transform 0.4s var(--ease-out); }
+		.hero-sub { font-size: 1.125rem; color: var(--color-text-muted); line-height: 1.6; margin-top: 24px; max-width: 480px; }
+		.hero-sub strong { color: var(--color-text); font-weight: 600; }
+		.hero-buttons { display: flex; gap: 12px; margin-top: 32px; flex-wrap: wrap; }
+		.hero-caption { font-family: var(--font-mono); font-size: 11.5px; color: var(--color-text-faint); letter-spacing: 0.02em; margin-top: 34px; }
+
+		/* ---- SHOWCASE ---- */
+		.showcase { padding: var(--space-4xl) 0; }
+		.showcase-grid { display: grid; grid-template-columns: repeat(2, minmax(min(320px, 100%), 1fr)); gap: 20px; }
+		.show-card { display: flex; flex-direction: column; gap: 12px; padding: 28px; background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); transition: transform var(--duration-normal) var(--ease-out), box-shadow var(--duration-normal) var(--ease-out), border-color var(--duration-normal) var(--ease-out); color: var(--color-text); }
+		.show-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); border-color: var(--color-border-light); }
+		.show-card h3 { font-size: 1.25rem; font-weight: 650; letter-spacing: -0.01em; }
+		.show-card > p { font-size: 0.9rem; color: var(--color-text-muted); line-height: 1.55; }
+		.chip { align-self: flex-start; font-size: 11px; font-weight: 600; letter-spacing: var(--tracking-caps); text-transform: uppercase; padding: 4px 11px; border-radius: var(--radius-full); }
+		.chip-teal { color: var(--color-teal); background: var(--color-teal-glow); }
+		.show-mini { margin-top: 4px; padding: 16px; background: var(--color-bg); border-radius: var(--radius-md); border: 1px solid var(--color-border); display: flex; flex-direction: column; gap: 9px; }
+		.show-mini.center { align-items: center; }
+		.mini-search { display: flex; align-items: center; gap: 8px; font-size: 0.78rem; color: var(--color-text-faint); padding: 8px 12px; border: 1px solid var(--color-border); border-radius: var(--radius-full); background: var(--color-surface); }
+		.mini-row { font-size: 0.74rem; color: var(--color-text-muted); display: flex; align-items: center; gap: 8px; }
+		.tag { font-family: var(--font-mono); font-size: 0.6rem; font-weight: 600; padding: 2px 6px; border-radius: 5px; white-space: nowrap; }
+		.mini-graph { width: 100%; max-width: 260px; height: auto; display: block; }
+		.legend { display: flex; gap: 16px; justify-content: center; margin-top: 10px; flex-wrap: wrap; }
+		.legend span { display: flex; align-items: center; gap: 5px; font-family: var(--font-mono); font-size: 0.62rem; color: var(--color-text-faint); }
+		.dot { width: 7px; height: 7px; border-radius: 50%; }
+		.show-mini.capsule { flex-direction: row; align-items: center; gap: 10px; }
+		.capsule-col { flex: 1; display: flex; flex-direction: column; gap: 9px; }
+		.capsule-msg { font-size: 0.74rem; color: var(--color-text-muted); line-height: 1.5; display: flex; flex-direction: column; gap: 3px; align-items: flex-start; }
+		.mono-label { font-family: var(--font-mono); font-size: 0.62rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-text-faint); }
+		.mono-label.accent { color: var(--color-accent); }
+		.capsule-arrow { flex-shrink: 0; }
+		.chat-q { font-size: 0.8rem; color: var(--color-text); font-weight: 500; padding: 8px 12px; background: var(--color-accent-glow); border-radius: var(--radius-md); align-self: flex-end; max-width: 90%; }
+		.chat-a { font-size: 0.78rem; color: var(--color-text-muted); line-height: 1.55; padding-left: 12px; border-left: 2px solid var(--color-teal); display: flex; flex-direction: column; gap: 9px; }
+		.chat-meta { display: flex; flex-wrap: wrap; gap: 8px; }
+		.chat-meta span { display: flex; align-items: center; gap: 4px; font-family: var(--font-mono); font-size: 0.62rem; color: var(--color-text-faint); }
+
+		/* ---- NARRATIVE ---- */
+		.narrative { background: var(--color-bg-alt); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); padding: var(--space-4xl) 0 var(--space-2xl); }
+		.narrative-intro { max-width: 760px; margin: 0 auto; padding: 0 24px; text-align: center; }
+		.narrative-intro h2 { font-size: clamp(1.8rem, 3.4vw, 2.6rem); font-weight: 700; letter-spacing: -0.025em; line-height: 1.1; }
+		.narrative-intro p { font-size: 1.0625rem; color: var(--color-text-muted); line-height: 1.6; margin-top: 18px; }
+		.nrow { max-width: 1080px; margin: var(--space-2xl) auto 0; padding: 48px 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+		.nrow-text h3 { font-size: clamp(1.5rem, 2.6vw, 2.1rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.12; margin-top: 12px; }
+		.nrow-text p { font-size: 1.0625rem; color: var(--color-text-muted); line-height: 1.6; margin-top: 16px; max-width: 420px; }
+		.flip .nrow-visual { order: 1; }
+		.flip .nrow-text { order: 2; }
+		.surface-card { padding: 24px; border-radius: var(--radius-lg); background: var(--color-surface); border: 1px solid var(--color-border); box-shadow: var(--shadow-md); }
+		.insight-card { padding: 24px; border-radius: var(--radius-lg); background: var(--gradient-brand-soft); border: 1px solid rgba(200, 114, 58, 0.20); box-shadow: var(--shadow-md); }
+		.insight-head { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
+		.insight-eyebrow { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: var(--tracking-caps); color: #a6592a; }
+		.insight-body { font-weight: 500; font-size: 1.125rem; line-height: 1.4; }
+		.insight-foot { display: flex; align-items: center; gap: 9px; margin-top: 18px; }
+		.avatar { width: 28px; height: 28px; border-radius: 50%; background: var(--color-surface); border: 2px solid var(--color-border); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 600; color: var(--color-text); flex-shrink: 0; }
+		.insight-foot-text { font-size: 13px; color: var(--color-text-muted); }
+		.insight-glyphs { display: flex; align-items: center; gap: 6px; }
+		.people-card { padding: 8px 20px; }
+		.person { display: flex; align-items: center; gap: 13px; padding: 14px 4px; }
+		.person-border { border-top: 1px solid var(--color-border); }
+		.person .avatar { width: 40px; height: 40px; background: var(--color-bg-alt); font-size: 14px; }
+		.person-main { min-width: 0; flex: 1; }
+		.person-name { font-weight: 600; font-size: 14.5px; }
+		.person-recent { font-size: 12.5px; color: var(--color-text-muted); }
+		.person-tie { font-family: var(--font-mono); font-size: 10.5px; color: var(--color-text-faint); white-space: nowrap; }
+
+		/* ---- REGISTERS ---- */
+		.registers { padding: var(--space-4xl) 0; }
+		.registers .section-head { max-width: 580px; margin-bottom: 48px; }
+		.registers-grid { display: grid; grid-template-columns: 1fr auto 1fr; gap: 28px; align-items: center; max-width: 900px; margin: 0 auto; }
+		.reg-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: var(--tracking-caps); color: var(--color-text-faint); margin-bottom: 12px; }
+		.sparkle { color: var(--color-accent); font-size: 15px; line-height: 1; }
+		.reg-tags { display: flex; gap: 8px; margin-top: 14px; }
+		.tag-pill { font-size: 11.5px; font-weight: 500; padding: 3px 10px; border-radius: var(--radius-full); }
+		.tag-pill.positive { font-family: var(--font-mono); font-size: 10.5px; color: var(--color-positive); background: var(--color-teal-glow); }
+		.tag-pill.neutral { color: var(--color-text-muted); background: var(--color-bg-alt); }
+		.reg-link { display: flex; flex-direction: column; align-items: center; gap: 8px; color: var(--color-text-faint); }
+		.reg-link span { font-family: var(--font-mono); font-size: 10px; writing-mode: vertical-rl; letter-spacing: 0.12em; }
+		.evidence { display: flex; flex-direction: column; gap: 12px; }
+		.evidence-card { padding: 18px; border-radius: var(--radius-lg); background: var(--color-surface); border: 1px solid var(--color-border); box-shadow: var(--shadow-sm); }
+		.evidence-head { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; font-size: 12.5px; font-weight: 600; color: var(--color-text-muted); }
+		.evidence-time { font-family: var(--font-mono); font-size: 10px; color: var(--color-text-faint); margin-left: auto; }
+		.evidence-card p { font-size: 13.5px; line-height: 1.5; }
+		.evidence-link { margin-top: 8px; color: var(--color-text-muted); }
+
+		/* ---- SOURCES PREVIEW ---- */
+		.sources-preview { padding: var(--space-4xl) 0; }
+		.sources-preview .section-head { max-width: 620px; margin-bottom: 44px; }
+		.sources-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+		.source-col { padding: 24px; background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); }
+		.source-col .mono-label { margin-bottom: 16px; }
+		.source-row { display: flex; align-items: center; gap: 11px; font-size: 14.5px; font-weight: 500; color: var(--color-text); margin-top: 12px; }
+
+		/* ---- PRIVACY BAND ---- */
+		.privacy-band { background: var(--color-brown); color: var(--color-off-white); position: relative; overflow: hidden; }
+		.privacy-watermark { position: absolute; bottom: -220px; left: -160px; pointer-events: none; opacity: 0.07; }
+		.privacy-inner { padding-top: 88px; padding-bottom: 88px; position: relative; }
+		.privacy-head { max-width: 540px; margin-bottom: 48px; }
+		.privacy-eyebrow { color: rgba(250, 249, 247, 0.5); }
+		.privacy-head h2 { font-size: clamp(1.9rem, 3.4vw, 2.6rem); font-weight: 700; letter-spacing: -0.025em; line-height: 1.1; color: var(--color-off-white); }
+		.privacy-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+		.privacy-card { padding: 28px; border-radius: var(--radius-lg); background: rgba(250, 249, 247, 0.045); border: 1px solid rgba(250, 249, 247, 0.10); }
+		.privacy-card h3 { font-size: 1.25rem; font-weight: 600; margin-top: 16px; color: var(--color-off-white); }
+		.privacy-card p { font-size: 14px; color: rgba(250, 249, 247, 0.62); line-height: 1.55; margin-top: 9px; }
+
+		/* ---- CTA ---- */
+		.cta { position: relative; overflow: hidden; }
+		.cta-inner { max-width: 1080px; margin: 0 auto; padding: 104px 24px; text-align: center; }
+		.cta-mark { display: flex; justify-content: center; margin-bottom: 20px; }
+		.cta h2 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1.05; max-width: 640px; margin: 0 auto; }
+		.cta-buttons { display: flex; gap: 12px; justify-content: center; margin-top: 34px; flex-wrap: wrap; }
+		.cta-stats { display: flex; justify-content: center; gap: 48px; margin-top: 48px; flex-wrap: wrap; }
+		.stat { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+		.stat-v { font-family: var(--font-mono); font-size: 2rem; font-weight: 600; color: var(--color-accent); }
+		.stat-l { font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-text-faint); }
+		.cta-caption { font-family: var(--font-mono); font-size: 12px; color: var(--color-text-faint); margin-top: 28px; }
+
+		/* ---- RESPONSIVE ---- */
+		@media (max-width: 900px) {
+			.hero-grid { grid-template-columns: 1fr; text-align: center; }
+			.hero-text { order: 1; }
+			.hero-visual { order: 2; }
+			.pill, .hero-buttons { justify-content: center; }
+			.hero-sub { margin-left: auto; margin-right: auto; }
+		}
+		@media (max-width: 860px) {
+			.nrow, .nrow.flip { grid-template-columns: 1fr; gap: 28px; }
+			.nrow-text, .flip .nrow-text { order: 1; }
+			.nrow-visual, .flip .nrow-visual { order: 2; }
+			.nrow-text p { max-width: none; }
+			.sources-grid { grid-template-columns: 1fr; }
+			.privacy-grid { grid-template-columns: 1fr; }
+		}
+		@media (max-width: 760px) {
+			.showcase-grid { grid-template-columns: 1fr; }
+			.registers-grid { grid-template-columns: 1fr; }
+			.reg-link { display: none; }
+		}
+		@media (max-width: 560px) {
+			.hero-visual { display: none; }
+		}
+		@media (max-width: 480px) {
+			.hero-grid { padding: 80px 20px 64px; }
+			.hero-h1 { font-size: clamp(2.1rem, 8.5vw, 4.2rem); }
+			.pill { max-width: 100%; }
+			.pill span { font-size: 11.5px; }
+			.cta-stats { gap: 28px; }
+		}
+		@media (max-width: 420px) {
+			.show-mini.capsule { flex-direction: column; align-items: stretch; }
+			.capsule-arrow { transform: rotate(90deg); align-self: center; }
+		}
+	</style>
 </BaseLayout>
-
-<style>
-	/* Feature showcase */
-	.showcase { padding: var(--space-4xl) 0; }
-
-	.section-header { text-align: center; margin-bottom: var(--space-3xl); }
-
-	.section-header h2 {
-		font-size: clamp(1.75rem, 4vw, 2.75rem);
-		font-weight: 700;
-		letter-spacing: -0.02em;
-		margin-bottom: var(--space-md);
-	}
-
-	.highlight { color: var(--color-accent); }
-
-	.section-header p {
-		color: var(--color-text-muted);
-		font-size: 1.1rem;
-		max-width: 480px;
-		margin: 0 auto;
-	}
-
-	.showcase-grid {
-		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-		gap: var(--space-lg);
-	}
-
-	.showcase-card {
-		padding: var(--space-lg);
-		background: var(--color-surface);
-		border: 1px solid var(--color-border);
-		border-radius: var(--radius-lg);
-		transition: all var(--duration-normal) ease;
-		display: flex;
-		flex-direction: column;
-		gap: var(--space-sm);
-		color: inherit;
-		text-decoration: none;
-	}
-
-	.showcase-card:hover {
-		border-color: var(--color-border-light);
-		transform: translateY(-4px);
-		box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
-		color: inherit;
-	}
-
-	.showcase-tag {
-		display: inline-block;
-		font-size: 0.65rem;
-		font-weight: 600;
-		letter-spacing: 0.1em;
-		text-transform: uppercase;
-		color: var(--color-teal);
-		background: var(--color-teal-glow);
-		padding: 0.2em 0.6em;
-		border-radius: var(--radius-full);
-		width: fit-content;
-	}
-
-	.showcase-card h3 {
-		font-size: 1.15rem;
-		font-weight: 650;
-		letter-spacing: -0.01em;
-	}
-
-	.showcase-desc {
-		font-size: 0.88rem;
-		color: var(--color-text-muted);
-		line-height: 1.5;
-	}
-
-	.showcase-visual {
-		padding: var(--space-md);
-		background: var(--color-bg);
-		border-radius: var(--radius-md);
-		border: 1px solid var(--color-border);
-	}
-
-	/* Mini search */
-	.mini-search { display: flex; flex-direction: column; gap: var(--space-sm); }
-	.mini-bar {
-		display: flex; align-items: center; gap: var(--space-xs);
-		font-size: 0.75rem; color: var(--color-text-faint);
-		padding: var(--space-xs) var(--space-sm);
-		border: 1px solid var(--color-border); border-radius: var(--radius-full);
-	}
-	.mini-result {
-		font-size: 0.72rem; color: var(--color-text-muted);
-		padding: var(--space-xs) var(--space-sm);
-		display: flex; align-items: center; gap: var(--space-sm);
-	}
-	.mini-platform {
-		font-size: 0.6rem; font-weight: 700; letter-spacing: 0.04em;
-		text-transform: uppercase; padding: 0.1em 0.4em; border-radius: 3px; flex-shrink: 0;
-	}
-	.mp-wa { color: #25D366; background: rgba(37, 211, 102, 0.1); }
-	.mp-gpt { color: #10A37F; background: rgba(16, 163, 127, 0.1); }
-	.mp-msg { color: #0084FF; background: rgba(0, 132, 255, 0.1); }
-	.mp-ig { color: #E4405F; background: rgba(228, 64, 95, 0.1); }
-	.mp-keep { color: #FBBC04; background: rgba(251, 188, 4, 0.15); }
-
-	/* Mini graph */
-	.mini-graph { width: 100%; max-width: 260px; height: auto; display: block; margin: 0 auto; }
-	.mini-graph-legend {
-		display: flex; gap: var(--space-md); justify-content: center;
-		margin-top: var(--space-sm);
-	}
-	.legend-item {
-		display: flex; align-items: center; gap: var(--space-xs);
-		font-size: 0.7rem; color: var(--color-text-faint);
-	}
-	.legend-dot { width: 7px; height: 7px; border-radius: 50%; }
-	.dot-inner { background: var(--color-teal); }
-	.dot-active { background: var(--color-accent-light); }
-	.dot-extended { background: var(--color-text-faint); opacity: 0.5; }
-
-	/* Mini capsule */
-	.mini-capsule { display: flex; align-items: center; gap: var(--space-sm); }
-	.capsule-column { flex: 1; display: flex; flex-direction: column; gap: var(--space-sm); }
-	.capsule-date {
-		font-size: 0.65rem; font-weight: 700; letter-spacing: 0.06em;
-		text-transform: uppercase; color: var(--color-text-faint);
-	}
-	.capsule-date-now { color: var(--color-accent); }
-	.capsule-entry {
-		font-size: 0.72rem; color: var(--color-text-muted); line-height: 1.5;
-		display: flex; flex-direction: column; gap: 2px;
-	}
-	.capsule-source {
-		font-size: 0.6rem; font-weight: 700; letter-spacing: 0.04em;
-		text-transform: uppercase; padding: 0.1em 0.4em; border-radius: 3px;
-		width: fit-content;
-	}
-	.capsule-arrow { flex-shrink: 0; color: var(--color-text-faint); }
-
-	/* Mini chat */
-	.mini-chat { display: flex; flex-direction: column; gap: var(--space-sm); }
-	.mini-user {
-		font-size: 0.78rem; color: var(--color-text); font-weight: 500;
-		padding: var(--space-xs) var(--space-sm);
-		background: var(--color-accent-glow); border-radius: var(--radius-sm);
-	}
-	.mini-claude {
-		font-size: 0.75rem; color: var(--color-text-muted); line-height: 1.5;
-		padding-left: var(--space-sm); border-left: 2px solid var(--color-teal);
-		display: flex; flex-direction: column; gap: var(--space-sm);
-	}
-	.claude-text { line-height: 1.5; }
-	.claude-sources {
-		display: flex; flex-wrap: wrap; gap: var(--space-xs);
-	}
-	.claude-source {
-		display: flex; align-items: center; gap: 4px;
-		font-size: 0.65rem; color: var(--color-text-faint);
-	}
-
-	.showcase-cta { text-align: center; margin-top: var(--space-2xl); }
-	.showcase-cta a { color: var(--color-accent); font-weight: 500; font-size: 0.95rem; }
-
-	/* Privacy signal */
-	.privacy-signal { padding: var(--space-4xl) 0; text-align: center; }
-
-	.privacy-signal h2 {
-		font-size: clamp(1.75rem, 4vw, 2.75rem);
-		font-weight: 700;
-		letter-spacing: -0.02em;
-		margin-bottom: var(--space-2xl);
-	}
-
-	.signal-grid {
-		display: flex;
-		justify-content: center;
-		gap: var(--space-3xl);
-		flex-wrap: wrap;
-		margin-bottom: var(--space-xl);
-	}
-
-	.signal-item {
-		display: flex;
-		align-items: center;
-		gap: var(--space-sm);
-		font-size: 0.95rem;
-		color: var(--color-text-muted);
-	}
-
-	.signal-link { color: var(--color-accent); font-size: 0.9rem; font-weight: 500; }
-
-	@media (max-width: 768px) {
-		.showcase-grid { grid-template-columns: 1fr; }
-		.signal-grid { flex-direction: column; align-items: center; gap: var(--space-lg); }
-		.mini-capsule { flex-direction: column; }
-		.capsule-arrow { transform: rotate(90deg); align-self: center; }
-	}
-
-	@media (max-width: 480px) {
-		.showcase-card { padding: var(--space-lg); }
-		.showcase-visual { padding: var(--space-sm); }
-		.signal-item { font-size: 0.85rem; }
-		.signal-item svg { flex-shrink: 0; }
-	}
-</style>

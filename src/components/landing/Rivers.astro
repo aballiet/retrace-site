@@ -1,0 +1,73 @@
+---
+/**
+ * Streamgraph ("Life Rivers") — geometry computed at build time, matching the
+ * design prototype's buildRivers(). Bands are stacked and centered.
+ */
+interface Series {
+	color: string;
+	points: number[];
+}
+interface Props {
+	series?: Series[];
+	months?: string[];
+	width?: number;
+	height?: number;
+}
+
+const {
+	series = [
+		{ color: '#c8723a', points: [10, 14, 9, 22, 30, 18, 12] },
+		{ color: '#3a8f85', points: [4, 6, 12, 20, 28, 40, 52] },
+		{ color: '#9c958e', points: [16, 12, 14, 10, 12, 9, 11] },
+		{ color: '#c89a3a', points: [2, 3, 5, 4, 8, 14, 10] },
+	],
+	months = ['Nov', 'Dec', 'Jan', 'Feb', 'Mar', 'Apr', 'May'],
+	width = 460,
+	height = 210,
+} = Astro.props;
+
+const n = series[0].points.length;
+const totals = Array.from({ length: n }, (_, i) =>
+	series.reduce((s, r) => s + r.points[i], 0)
+);
+const scaleY = (height * 0.82) / Math.max(...totals);
+const stepX = width / (n - 1);
+
+let acc = totals.map((t) => (height - t * scaleY) / 2);
+const paths = series.map((r) => {
+	const top = acc.slice();
+	const bot = acc.map((y, i) => y + r.points[i] * scaleY);
+	acc = bot;
+	let d = `M0,${top[0]}`;
+	for (let i = 1; i < n; i++) {
+		const xm = (i - 0.5) * stepX;
+		d += ` C${xm},${top[i - 1]} ${xm},${top[i]} ${i * stepX},${top[i]}`;
+	}
+	for (let i = n - 1; i >= 1; i--) {
+		const xm = (i - 0.5) * stepX;
+		d += ` C${xm},${bot[i]} ${xm},${bot[i - 1]} ${(i - 1) * stepX},${bot[i - 1]}`;
+	}
+	d += ' Z';
+	return { d, color: r.color };
+});
+---
+
+<svg viewBox={`0 0 ${width} ${height}`} width="100%" style="display:block;">
+	{paths.map((p) => <path d={p.d} fill={p.color} opacity="0.85" />)}
+</svg>
+<div class="rivers-months">
+	{months.map((m) => <span>{m}</span>)}
+</div>
+
+<style>
+	.rivers-months {
+		display: flex;
+		justify-content: space-between;
+		margin-top: 10px;
+	}
+	.rivers-months span {
+		font-family: var(--font-mono);
+		font-size: 11px;
+		color: var(--color-text-faint);
+	}
+</style>
