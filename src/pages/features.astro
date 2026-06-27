@@ -10,16 +10,19 @@ import { WriteBackExplainer } from '../components/animations/WriteBackExplainer'
 import { ScopeExplainer } from '../components/animations/ScopeExplainer';
 ---
 
-<BaseLayout title="Features - Retrace" description="Everything Retrace can do with your conversations. Search, network graph, time capsules, Claude chat, and more.">
+<BaseLayout active="features" title="Features - Retrace" description="Everything Retrace can do with your conversations. Search, network graph, time capsules, Claude chat, and more.">
 
-<div class="page-header" data-inview>
+<header class="page-header" data-inview>
+	<div aria-hidden="true" class="quote-glyph">&#8220;</div>
 	<div class="container">
-		<h1 class="reveal">Explore, rediscover, <span class="highlight">reflect.</span></h1>
-		<p class="reveal reveal-delay-1">
-			Everything Retrace can do with your conversations.
+		<div class="eyebrow reveal">features</div>
+		<h1 class="reveal reveal-delay-1">Your personal <span class="highlight">context layer.</span></h1>
+		<p class="reveal reveal-delay-2">
+			Find anything you ever said, see how your relationships move, and bring your favorite AI app
+			to your own data. Most of it works with no model at all.
 		</p>
 	</div>
-</div>
+</header>
 
 <!-- Feature 1: Claude Chat -->
 <section id="chat" class="feature-section" data-inview>
@@ -57,7 +60,7 @@ import { ScopeExplainer } from '../components/animations/ScopeExplainer';
 <section id="search" class="feature-section alt" data-inview>
 	<div class="container feature-row reverse">
 		<div class="feature-copy reveal">
-			<span class="feature-tag">Search</span>
+			<span class="feature-tag">Search · no model needed</span>
 			<h2>Find anything you ever said</h2>
 			<p>
 				Search by meaning, not just keywords. "That restaurant someone recommended last summer" works.
@@ -97,7 +100,7 @@ import { ScopeExplainer } from '../components/animations/ScopeExplainer';
 <section id="network" class="feature-section" data-inview>
 	<div class="container feature-row">
 		<div class="feature-copy reveal">
-			<span class="feature-tag">Network</span>
+			<span class="feature-tag">Network · no model needed</span>
 			<h2>See your social graph</h2>
 			<p>
 				Force-directed visualization of your relationships. Tie-strength scoring reveals
@@ -315,31 +318,55 @@ import { ScopeExplainer } from '../components/animations/ScopeExplainer';
 
 <style>
 	.page-header {
-		padding-top: 140px;
-		padding-bottom: var(--space-xl);
+		padding: 128px 0 48px;
 		text-align: center;
+		position: relative;
+		overflow: hidden;
+	}
+	.page-header .container { max-width: 760px; position: relative; }
+
+	.quote-glyph {
+		position: absolute;
+		top: -30px;
+		right: 60px;
+		pointer-events: none;
+		user-select: none;
+		font-family: Georgia, 'Times New Roman', serif;
+		font-weight: 700;
+		font-size: clamp(220px, 30vw, 420px);
+		line-height: 1;
+		background: var(--gradient-brand);
+		-webkit-background-clip: text;
+		background-clip: text;
+		color: transparent;
+		-webkit-text-fill-color: transparent;
+		opacity: 0.12;
+	}
+
+	.eyebrow {
+		font-size: 12px;
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: var(--tracking-caps);
+		color: var(--color-teal);
+		margin-bottom: 16px;
 	}
 
 	.page-header h1 {
-		font-size: clamp(2rem, 5vw, 3.25rem);
+		font-size: clamp(2.2rem, 5vw, 3.4rem);
 		font-weight: 700;
 		letter-spacing: -0.03em;
-		line-height: 1.15;
-		margin-bottom: var(--space-lg);
+		line-height: 1.1;
 	}
 
-	.highlight {
-		background: linear-gradient(135deg, var(--color-accent), var(--color-accent-light));
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-clip: text;
-	}
+	.highlight { color: var(--color-accent); }
 
 	.page-header p {
 		color: var(--color-text-muted);
 		font-size: 1.15rem;
-		max-width: 480px;
-		margin: 0 auto;
+		line-height: 1.65;
+		max-width: 520px;
+		margin: 18px auto 0;
 	}
 
 	/* Feature sections */
@@ -510,31 +537,35 @@ import { ScopeExplainer } from '../components/animations/ScopeExplainer';
 	.rule-allow { color: #5d8c6a; background: rgba(93, 140, 106, 0.1); }
 
 	/* CTA */
-	.feature-cta { padding: var(--space-4xl) 0; text-align: center; }
-	.feature-cta h2 {
-		font-size: clamp(1.5rem, 3vw, 2.25rem);
-		font-weight: 700; letter-spacing: -0.02em; margin-bottom: var(--space-xl);
+	.feature-cta {
+		padding: var(--space-4xl) 0;
+		text-align: center;
+		background: var(--color-bg-alt);
+		border-top: 1px solid var(--color-border);
 	}
-	.cta-buttons { display: flex; gap: var(--space-md); justify-content: center; flex-wrap: wrap; }
+	.feature-cta h2 {
+		font-size: clamp(1.7rem, 3.4vw, 2.4rem);
+		font-weight: 700; letter-spacing: -0.025em; margin-bottom: var(--space-xl);
+	}
+	.cta-buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
 	.btn {
-		display: inline-flex; align-items: center; gap: var(--space-sm);
-		padding: 0.85rem 1.75rem; border-radius: var(--radius-full);
-		font-weight: 600; font-size: 0.95rem;
-		transition: all var(--duration-fast) ease; white-space: nowrap;
+		display: inline-flex; align-items: center; gap: 9px;
+		height: 50px; padding: 0 24px; border-radius: var(--radius-full);
+		font-weight: 600; font-size: 15px;
+		transition: transform var(--duration-fast) var(--ease-out), background var(--duration-fast) var(--ease-out), border-color var(--duration-fast) var(--ease-out);
+		white-space: nowrap;
 	}
 	.btn-primary {
-		background: var(--color-primary); color: var(--color-bg); border: 1px solid transparent;
+		background: var(--color-accent); color: var(--color-text-on-accent); box-shadow: var(--shadow-sm);
 	}
 	.btn-primary:hover {
-		background: var(--color-text-muted); transform: translateY(-2px);
-		box-shadow: 0 8px 30px rgba(45, 42, 38, 0.15);
+		background: var(--color-accent-light); transform: translateY(-1px); color: var(--color-text-on-accent);
 	}
 	.btn-secondary {
-		background: var(--color-surface); color: var(--color-text); border: 1px solid var(--color-border);
+		background: var(--color-surface); color: var(--color-text); border: 1px solid var(--color-border); box-shadow: var(--shadow-xs); padding: 0 22px;
 	}
 	.btn-secondary:hover {
-		background: var(--color-surface-hover); border-color: var(--color-border-light);
-		transform: translateY(-2px);
+		border-color: var(--color-border-light); transform: translateY(-1px);
 	}
 
 	@media (max-width: 900px) {

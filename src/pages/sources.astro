@@ -1,291 +1,150 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Glyph from '../components/Glyph.astro';
 
-const icons: Record<string, { color: string; path: string }> = {
-	chatgpt: { color: '#10A37F', path: 'M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9A6.0651 6.0651 0 0 0 4.9807 4.1818a5.9847 5.9847 0 0 0-3.9977 2.9 6.0462 6.0462 0 0 0 .7427 7.0966 5.98 5.98 0 0 0 .511 4.9107 6.051 6.051 0 0 0 6.5146 2.9001A5.9847 5.9847 0 0 0 13.2599 24a6.0557 6.0557 0 0 0 5.7718-4.2058 5.9894 5.9894 0 0 0 3.9977-2.9001 6.0557 6.0557 0 0 0-.7475-7.0729zm-9.022 12.6081a4.4755 4.4755 0 0 1-2.8764-1.0408l.1419-.0804 4.7783-2.7582a.7948.7948 0 0 0 .3927-.6813v-6.7369l2.02 1.1686a.071.071 0 0 1 .038.052v5.5826a4.504 4.504 0 0 1-4.4945 4.4944zm-9.6607-4.1254a4.4708 4.4708 0 0 1-.5346-3.0137l.142.0852 4.783 2.7582a.7712.7712 0 0 0 .7806 0l5.8428-3.3685v2.3324a.0804.0804 0 0 1-.0332.0615L9.74 19.9502a4.4992 4.4992 0 0 1-6.1408-1.6464zM2.3408 7.8956a4.485 4.485 0 0 1 2.3655-1.9728V11.6a.7664.7664 0 0 0 .3879.6765l5.8144 3.3543-2.0201 1.1685a.0757.0757 0 0 1-.071 0l-4.8303-2.7865A4.504 4.504 0 0 1 2.3408 7.872zm16.5963 3.8558L13.1038 8.364 15.1192 7.2a.0757.0757 0 0 1 .071 0l4.8303 2.7913a4.4944 4.4944 0 0 1-.6765 8.1042v-5.6772a.79.79 0 0 0-.407-.667zm2.0107-3.0231l-.142-.0852-4.7735-2.7818a.7759.7759 0 0 0-.7854 0L9.409 9.2297V6.8974a.0662.0662 0 0 1 .0284-.0615l4.8303-2.7866a4.4992 4.4992 0 0 1 6.6802 4.66zM8.3065 12.863l-2.02-1.1638a.0804.0804 0 0 1-.038-.0567V6.0742a4.4992 4.4992 0 0 1 7.3757-3.4537l-.142.0805L8.704 5.459a.7948.7948 0 0 0-.3927.6813zm1.0976-2.3654l2.602-1.4998 2.6069 1.4998v2.9994l-2.5974 1.4997-2.6067-1.4997Z' },
-	claude: { color: '#D97706', path: 'm4.7144 15.9555 4.7174-2.6471.079-.2307-.079-.1275h-.2307l-.7893-.0486-2.6956-.0729-2.3375-.0971-2.2646-.1214-.5707-.1215-.5343-.7042.0546-.3522.4797-.3218.686.0608 1.5179.1032 2.2767.1578 1.6514.0972 2.4468.255h.3886l.0546-.1579-.1336-.0971-.1032-.0972L6.973 9.8356l-2.55-1.6879-1.3356-.9714-.7225-.4918-.3643-.4614-.1578-1.0078.6557-.7225.8803.0607.2246.0607.8925.686 1.9064 1.4754 2.4893 1.8336.3643.3035.1457-.1032.0182-.0728-.164-.2733-1.3539-2.4467-1.445-2.4893-.6435-1.032-.17-.6194c-.0607-.255-.1032-.4674-.1032-.7285L6.287.1335 6.6997 0l.9957.1336.419.3642.6192 1.4147 1.0018 2.2282 1.5543 3.0296.4553.8985.2429.8318.091.255h.1579v-.1457l.1275-1.706.2368-2.0947.2307-2.6957.0789-.7589.3764-.9107.7468-.4918.5828.2793.4797.686-.0668.4433-.2853 1.8517-.5586 2.9021-.3643 1.9429h.2125l.2429-.2429.9835-1.3053 1.6514-2.0643.7286-.8196.85-.9046.5464-.4311h1.0321l.759 1.1293-.34 1.1657-1.0625 1.3478-.8804 1.1414-1.2628 1.7-.7893 1.36.0729.1093.1882-.0183 2.8535-.607 1.5421-.2794 1.8396-.3157.8318.3886.091.3946-.3278.8075-1.967.4857-2.3072.4614-3.4364.8136-.0425.0304.0486.0607 1.5482.1457.6618.0364h1.621l3.0175.2247.7892.522.4736.6376-.079.4857-1.2142.6193-1.6393-.3886-3.825-.9107-1.3113-.3279h-.1822v.1093l1.0929 1.0686 2.0035 1.8092 2.5075 2.3314.1275.5768-.3218.4554-.34-.0486-2.2039-1.6575-.85-.7468-1.9246-1.621h-.1275v.17l.4432.6496 2.3436 3.5214.1214 1.0807-.17.3521-.6071.2125-.6679-.1214-1.3721-1.9246L14.38 17.959l-1.1414-1.9428-.1397.079-.674 7.2552-.3156.3703-.7286.2793-.6071-.4614-.3218-.7468.3218-1.4753.3886-1.9246.3157-1.53.2853-1.9004.17-.6314-.0121-.0425-.1397.0182-1.4328 1.9672-2.1796 2.9446-1.7243 1.8456-.4128.164-.7164-.3704.0667-.6618.4008-.5889 2.386-3.0357 1.4389-1.882.929-1.0868-.0062-.1579h-.0546l-6.3385 4.1164-1.1293.1457-.4857-.4554.0608-.7467.2307-.2429 1.9064-1.3114Z' },
-	whatsapp: { color: '#25D366', path: 'M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.28-.1-.48-.15-.68.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.27-.47-2.41-1.49-.89-.8-1.49-1.78-1.67-2.08-.17-.3-.02-.46.13-.61.14-.14.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.38-.02-.52-.08-.15-.68-1.64-.93-2.25-.25-.58-.5-.5-.68-.51h-.58c-.2 0-.52.07-.8.38-.27.3-1.04 1.02-1.04 2.49 0 1.47 1.07 2.89 1.22 3.09.14.2 2.1 3.2 5.08 4.49.71.31 1.27.49 1.7.63.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.42-.07-.12-.27-.2-.57-.34zM12 21.8A9.73 9.73 0 014.46 18L4.1 17.77l-2.17.57.58-2.12-.26-.4A9.76 9.76 0 012.2 12 9.8 9.8 0 0112 2.2 9.8 9.8 0 0121.8 12 9.8 9.8 0 0112 21.8zM12 0a12 12 0 00-12 12 11.94 11.94 0 001.6 5.98L0 24l6.17-1.62A11.94 11.94 0 0012 24a12 12 0 000-24z' },
-	messenger: { color: '#0084FF', path: 'M12 0C5.37 0 0 4.97 0 11.11c0 3.5 1.74 6.62 4.47 8.65V24l4.09-2.24c1.09.3 2.24.46 3.44.46 6.63 0 12-4.97 12-11.11S18.63 0 12 0zm1.19 14.96l-3.06-3.26-5.97 3.26L10.73 8l3.13 3.26L19.73 8z' },
-	instagram: { color: '#E4405F', path: 'M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.72 3.72 0 01-1.38-.9 3.72 3.72 0 01-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16zM12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63a5.87 5.87 0 00-2.13 1.38A5.87 5.87 0 00.63 4.14C.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.31.8.72 1.47 1.38 2.13a5.87 5.87 0 002.13 1.38c.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56a5.87 5.87 0 002.13-1.38 5.87 5.87 0 001.38-2.13c.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91a5.87 5.87 0 00-1.38-2.13A5.87 5.87 0 0019.86.63C19.1.33 18.22.13 16.95.07 15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 100 12.32 6.16 6.16 0 000-12.32zM12 16a4 4 0 110-8 4 4 0 010 8zm7.85-10.4a1.44 1.44 0 11-2.88 0 1.44 1.44 0 012.88 0z' },
-	sms: { color: '#4CAF50', path: 'M20 2H4a2 2 0 00-2 2v18l4-4h14a2 2 0 002-2V4a2 2 0 00-2-2zM9 11H7V9h2v2zm4 0h-2V9h2v2zm4 0h-2V9h2v2z' },
-	keep: { color: '#FBBC04', path: 'M12 2a7 7 0 00-7 7c0 2.86 1.73 5.32 4.2 6.38v2.37a1 1 0 001 1h3.6a1 1 0 001-1v-2.37A7.01 7.01 0 0019 9a7 7 0 00-7-7zm1.8 17.75h-3.6V21a1 1 0 001 1h1.6a1 1 0 001-1z' },
-	calendar: { color: '#4285F4', path: 'M19 4h-1V2h-2v2H8V2H6v2H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V6a2 2 0 00-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2zM7 12h5v5H7z' },
-	obsidian: { color: '#7C3AED', path: 'M19.355 18.538a68.967 68.959 0 0 0 1.858-2.954.81.81 0 0 0-.062-.9c-.516-.685-1.504-2.075-2.042-3.362-.553-1.321-.636-3.375-.64-4.377a1.707 1.707 0 0 0-.358-1.05l-3.198-4.064a3.744 3.744 0 0 1-.076.543c-.106.503-.307 1.004-.536 1.5-.134.29-.29.6-.446.914l-.31.626c-.516 1.068-.997 2.227-1.132 3.59-.124 1.26.046 2.73.815 4.481.128.011.257.025.386.044a6.363 6.363 0 0 1 3.326 1.505c.916.79 1.744 1.922 2.415 3.5zM8.199 22.569c.073.012.146.02.22.02.78.024 2.095.092 3.16.29.87.16 2.593.64 4.01 1.055 1.083.316 2.198-.548 2.355-1.664.114-.814.33-1.735.725-2.58l-.01.005c-.67-1.87-1.522-3.078-2.416-3.849a5.295 5.295 0 0 0-2.778-1.257c-1.54-.216-2.952.19-3.84.45.532 2.218.368 4.829-1.425 7.531zM5.533 9.938c-.023.1-.056.197-.098.29L2.82 16.059a1.602 1.602 0 0 0 .313 1.772l4.116 4.24c2.103-3.101 1.796-6.02.836-8.3-.728-1.73-1.832-3.081-2.55-3.831zM9.32 14.01c.615-.183 1.606-.465 2.745-.534-.683-1.725-.848-3.233-.716-4.577.154-1.552.7-2.847 1.235-3.95.113-.235.223-.454.328-.664.149-.297.288-.577.419-.86.217-.47.379-.885.46-1.27.08-.38.08-.72-.014-1.043-.095-.325-.297-.675-.68-1.06a1.6 1.6 0 0 0-1.475.36l-4.95 4.452a1.602 1.602 0 0 0-.513.952l-.427 2.83c.672.59 2.328 2.316 3.335 4.711.09.21.175.43.253.653z' },
-};
-
-interface SourceItem {
-	name: string;
-	method: string;
-	desc: string;
-	format: string;
-	icon: string;
-}
-
-interface SourceGroup {
-	group: string;
-	label: string;
-	items: SourceItem[];
-}
-
-const sources: SourceGroup[] = [
-	{
-		group: 'Browser extension',
-		label: 'Auto-sync from your browser',
-		items: [
-			{ name: 'ChatGPT', method: 'Extension', desc: 'Background sync of all conversations. Rate-limited, completely silent.', format: 'API', icon: 'chatgpt' },
-			{ name: 'Claude', method: 'Extension', desc: 'Background sync of all conversations. Same as ChatGPT.', format: 'API', icon: 'claude' },
-		]
-	},
-	{
-		group: 'Import',
-		label: 'Drag and drop, format auto-detected',
-		items: [
-			{ name: 'WhatsApp', method: 'Import', desc: 'Export from the app as .txt. Multi-format support, group and DM.', format: '.txt', icon: 'whatsapp' },
-			{ name: 'Messenger', method: 'Import', desc: 'Facebook "Download Your Information" JSON export.', format: '.json', icon: 'messenger' },
-			{ name: 'Instagram', method: 'Import', desc: 'DM export with multi-file thread merging and encoding fixes.', format: '.json', icon: 'instagram' },
-			{ name: 'SMS / MMS', method: 'Import', desc: 'XML from SMS Backup & Restore. Phone numbers normalized.', format: '.xml', icon: 'sms' },
-			{ name: 'Google Keep', method: 'Import', desc: 'Notes and checklists from Google Takeout.', format: '.html', icon: 'keep' },
-			{ name: 'Google Calendar', method: 'Import', desc: 'ICS file parsing with recurring event expansion and day grouping.', format: '.ics', icon: 'calendar' },
-		]
-	},
-	{
-		group: 'Live sync',
-		label: 'Real-time, always up to date',
-		items: [
-			{ name: 'WhatsApp', method: 'Live', desc: 'Connect via QR code. Real-time messages via Baileys protocol. Auto-reconnect.', format: 'WebSocket', icon: 'whatsapp' },
-			{ name: 'Obsidian', method: 'Live', desc: 'Vault filesystem watcher. Daily notes sync automatically.', format: '.md', icon: 'obsidian' },
-		]
-	}
+const importSources = [
+	{ name: 'WhatsApp', glyph: 'whatsapp', format: '.txt', desc: 'Export from the app as .txt. Multi-format support, group and DM.' },
+	{ name: 'Messenger', glyph: 'messenger', format: '.json', desc: 'Facebook "Download Your Information" JSON export.' },
+	{ name: 'Instagram', glyph: 'instagram', format: '.json', desc: 'DM export with multi-file thread merging and encoding fixes.' },
+	{ name: 'SMS / MMS', glyph: 'sms', format: '.xml', desc: 'XML from SMS Backup & Restore. Phone numbers normalized.' },
+	{ name: 'Google Keep', glyph: 'keep', format: '.html', desc: 'Notes and checklists from Google Takeout.' },
+	{ name: 'Calendar', glyph: 'calendar', format: '.ics', desc: 'ICS file parsing with recurring event expansion and day grouping.' },
 ];
 
-const coming = ['Telegram', 'iMessage', 'Email (sent folder)', 'Gemini'];
+const comingSoon = ['Telegram', 'iMessage', 'Email (sent folder)', 'Gemini'];
 ---
 
-<BaseLayout title="Sources - Retrace" description="Retrace reads from 10 sources. Import, sync, or connect live. Format is always auto-detected.">
+<BaseLayout active="sources" title="Sources - Retrace" description="Retrace reads from 10 sources. Import, sync, or connect live. Format is always auto-detected.">
+	<!-- HEADER -->
+	<header class="page-header" data-inview>
+		<div class="wrap-narrow">
+			<div class="eyebrow eyebrow-accent reveal">sources</div>
+			<h1 class="reveal reveal-delay-1">Every platform where you <span class="accent">think and talk.</span></h1>
+			<p class="reveal reveal-delay-2">Retrace reads from 10 sources. Import, sync, or connect live. Format is always auto-detected.</p>
+		</div>
+	</header>
 
-<div class="page-header" data-inview>
-	<div class="container">
-		<h1 class="reveal">Every platform where you <span class="highlight">think and talk.</span></h1>
-		<p class="reveal reveal-delay-1">
-			Retrace reads from 10 sources. Import, sync, or connect live. Format is always auto-detected.
-		</p>
-	</div>
-</div>
-
-{sources.map((group, gi) => (
-	<section class={`source-group${gi % 2 === 1 ? ' alt' : ''}`}>
-		<div class="container">
-			<div class="group-header" data-inview>
-				<h2 class="reveal">{group.group}</h2>
-				<p class="reveal reveal-delay-1">{group.label}</p>
+	<!-- BROWSER EXTENSION -->
+	<section class="group">
+		<div class="wrap">
+			<div class="group-head reveal" data-inview>
+				<h2>Browser extension</h2>
+				<p>Auto-sync from your browser, completely silent.</p>
 			</div>
-
-			<div class="source-grid" data-inview>
-				{group.items.map((source, si) => (
-					<div class="source-card reveal" style={`--delay: ${si * 100}ms`}>
-						<div class="source-top">
-							<span class="source-name">
-								{icons[source.icon] && (
-									<svg class="source-icon" width="22" height="22" viewBox="0 0 24 24" fill={icons[source.icon].color}>
-										<path d={icons[source.icon].path}/>
-									</svg>
-								)}
-								{source.name}
-							</span>
-							<span class="source-method">{source.method}</span>
-						</div>
-						<p class="source-desc">{source.desc}</p>
-						<div class="source-format">
-							<code>{source.format}</code>
-						</div>
-					</div>
-				))}
+			<div class="cards cards-2" data-inview>
+				<div class="card reveal">
+					<div class="card-head"><span class="card-title"><Glyph name="chatgpt" size={22} />ChatGPT</span><span class="badge">extension</span></div>
+					<p>Background sync of all conversations. Rate-limited, completely silent.</p>
+					<div class="card-foot"><code>API</code></div>
+				</div>
+				<div class="card reveal reveal-delay-1">
+					<div class="card-head"><span class="card-title"><Glyph name="claude" size={22} />Claude</span><span class="badge">extension</span></div>
+					<p>Background sync of all conversations. Same as ChatGPT.</p>
+					<div class="card-foot"><code>API</code></div>
+				</div>
 			</div>
 		</div>
 	</section>
-))}
 
-<section class="coming-soon">
-	<div class="container">
-		<div class="coming-content" data-inview>
-			<h2 class="reveal">More sources coming</h2>
-			<div class="coming-list reveal reveal-delay-1">
-				{coming.map((name) => (
-					<span class="coming-chip">{name}</span>
-				))}
+	<!-- IMPORT -->
+	<section class="group group-alt">
+		<div class="wrap">
+			<div class="group-head reveal" data-inview>
+				<h2>Import</h2>
+				<p>Drag and drop, format auto-detected.</p>
 			</div>
-			<p class="coming-note reveal reveal-delay-2">
-				<a href="https://github.com/aballiet/retrace/blob/main/docs/roadmap.md" target="_blank" rel="noopener">
-					See the full roadmap &rarr;
-				</a>
-			</p>
+			<div class="cards cards-3" data-inview>
+				{
+					importSources.map((s, i) => (
+						<div class:list={['card', 'card-sm', { reveal: true, [`reveal-delay-${(i % 3) + 1}`]: true }]}>
+							<div class="card-head">
+								<span class="card-title sm"><Glyph name={s.glyph} size={20} />{s.name}</span>
+								<code>{s.format}</code>
+							</div>
+							<p>{s.desc}</p>
+						</div>
+					))
+				}
+			</div>
 		</div>
-	</div>
-</section>
+	</section>
 
+	<!-- LIVE SYNC -->
+	<section class="group">
+		<div class="wrap">
+			<div class="group-head reveal" data-inview>
+				<h2>Live sync</h2>
+				<p>Real-time, always up to date.</p>
+			</div>
+			<div class="cards cards-2" data-inview>
+				<div class="card reveal">
+					<div class="card-head"><span class="card-title"><Glyph name="whatsapp" size={22} />WhatsApp</span><span class="badge">live</span></div>
+					<p>Connect via QR code. Real-time messages via Baileys protocol. Auto-reconnect.</p>
+					<div class="card-foot"><code>WebSocket</code></div>
+				</div>
+				<div class="card reveal reveal-delay-1">
+					<div class="card-head"><span class="card-title"><Glyph name="obsidian" size={22} />Obsidian</span><span class="badge">live</span></div>
+					<p>Vault filesystem watcher. Daily notes sync automatically.</p>
+					<div class="card-foot"><code>.md</code></div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- COMING SOON -->
+	<section class="coming">
+		<div class="wrap-narrow reveal" data-inview>
+			<h2>More sources coming</h2>
+			<div class="coming-chips">
+				{comingSoon.map((c) => <span class="coming-chip">{c}</span>)}
+			</div>
+			<a href="https://github.com/aballiet/retrace" target="_blank" rel="noopener" class="roadmap-link">See the full roadmap &rarr;</a>
+		</div>
+	</section>
+
+	<style>
+		.wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+		.wrap-narrow { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+		.accent { color: var(--color-accent); }
+		.eyebrow { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: var(--tracking-caps); margin-bottom: 16px; }
+		.eyebrow-accent { color: var(--color-accent); }
+
+		.page-header { padding: 128px 0 48px; text-align: center; }
+		.page-header h1 { font-size: clamp(2.2rem, 5vw, 3.4rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1.1; }
+		.page-header p { font-size: 1.15rem; color: var(--color-text-muted); line-height: 1.65; max-width: 520px; margin: 18px auto 0; }
+
+		.group { padding: var(--space-3xl) 0; }
+		.group-alt { background: var(--color-bg-alt); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); }
+		.group-head { margin-bottom: var(--space-xl); }
+		.group-head h2 { font-size: clamp(1.4rem, 3vw, 1.9rem); font-weight: 700; letter-spacing: -0.02em; }
+		.group-head p { color: var(--color-text-muted); font-size: 1rem; margin-top: 6px; }
+
+		.cards { display: grid; gap: 20px; }
+		.cards-2 { grid-template-columns: repeat(2, minmax(min(300px, 100%), 1fr)); }
+		.cards-3 { grid-template-columns: repeat(3, minmax(min(260px, 100%), 1fr)); }
+		.card { padding: 28px; background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); transition: transform var(--duration-normal) var(--ease-out), box-shadow var(--duration-normal) var(--ease-out), border-color var(--duration-normal) var(--ease-out); }
+		.card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); border-color: var(--color-border-light); }
+		.card-sm { padding: 24px; }
+		.card-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; gap: 10px; }
+		.card-sm .card-head { margin-bottom: 12px; }
+		.card-title { display: flex; align-items: center; gap: 10px; font-size: 1.1rem; font-weight: 650; letter-spacing: -0.01em; }
+		.card-title.sm { font-size: 1.02rem; gap: 9px; }
+		.card p { color: var(--color-text-muted); font-size: 0.92rem; line-height: 1.6; }
+		.card-sm p { font-size: 0.88rem; line-height: 1.55; }
+		.badge { font-family: var(--font-mono); font-size: 10.5px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-teal); background: var(--color-teal-glow); padding: 3px 9px; border-radius: var(--radius-full); white-space: nowrap; }
+		.card-foot { margin-top: 16px; }
+		code { font-family: var(--font-mono); font-size: 0.78rem; color: var(--color-text-faint); background: var(--color-bg-alt); padding: 3px 8px; border-radius: var(--radius-sm); }
+		.card-sm code { font-size: 0.72rem; padding: 2px 7px; }
+
+		.coming { background: var(--color-bg-alt); border-top: 1px solid var(--color-border); padding: var(--space-4xl) 0; text-align: center; }
+		.coming h2 { font-size: clamp(1.4rem, 3vw, 1.9rem); font-weight: 700; letter-spacing: -0.02em; }
+		.coming-chips { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin: 24px 0; }
+		.coming-chip { font-size: 0.9rem; color: var(--color-text-faint); border: 1px dashed var(--color-border-light); padding: 7px 16px; border-radius: var(--radius-full); }
+		.roadmap-link { color: var(--color-accent); font-size: 0.95rem; font-weight: 500; }
+
+		@media (max-width: 760px) {
+			.cards-2, .cards-3 { grid-template-columns: 1fr; }
+			.page-header { padding-top: 100px; }
+		}
+	</style>
 </BaseLayout>
-
-<style>
-	.page-header {
-		padding-top: 140px;
-		padding-bottom: var(--space-2xl);
-		text-align: center;
-	}
-
-	.page-header h1 {
-		font-size: clamp(2rem, 5vw, 3.25rem);
-		font-weight: 700;
-		letter-spacing: -0.03em;
-		line-height: 1.15;
-		margin-bottom: var(--space-lg);
-	}
-
-	.highlight {
-		background: linear-gradient(135deg, var(--color-accent), var(--color-accent-light));
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-clip: text;
-	}
-
-	.page-header p {
-		color: var(--color-text-muted);
-		font-size: 1.15rem;
-		max-width: 500px;
-		margin: 0 auto;
-		line-height: 1.7;
-	}
-
-	.source-group {
-		padding: var(--space-4xl) 0;
-	}
-
-	.source-group.alt {
-		background: var(--color-bg-alt);
-		border-top: 1px solid var(--color-border);
-		border-bottom: 1px solid var(--color-border);
-	}
-
-	.group-header {
-		margin-bottom: var(--space-2xl);
-	}
-
-	.group-header h2 {
-		font-size: clamp(1.5rem, 3vw, 2rem);
-		font-weight: 700;
-		letter-spacing: -0.02em;
-		margin-bottom: var(--space-sm);
-	}
-
-	.group-header p {
-		color: var(--color-text-muted);
-		font-size: 1rem;
-	}
-
-	.source-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr));
-		gap: var(--space-lg);
-	}
-
-	.source-card {
-		padding: var(--space-xl);
-		background: var(--color-surface);
-		border: 1px solid var(--color-border);
-		border-radius: var(--radius-lg);
-		transition: all var(--duration-normal) ease;
-		animation-delay: var(--delay);
-	}
-
-	.source-card:hover {
-		border-color: var(--color-border-light);
-		transform: translateY(-4px);
-		box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
-	}
-
-	.source-top {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		margin-bottom: var(--space-md);
-	}
-
-	.source-name {
-		font-size: 1.1rem;
-		font-weight: 650;
-		letter-spacing: -0.01em;
-		display: flex;
-		align-items: center;
-		gap: var(--space-sm);
-	}
-
-	.source-icon { flex-shrink: 0; }
-
-	.source-method {
-		font-family: var(--font-mono);
-		font-size: 0.7rem;
-		font-weight: 600;
-		letter-spacing: 0.06em;
-		text-transform: uppercase;
-		color: var(--color-teal);
-		background: var(--color-teal-glow);
-		padding: 0.2em 0.6em;
-		border-radius: var(--radius-full);
-	}
-
-	.source-desc {
-		color: var(--color-text-muted);
-		font-size: 0.9rem;
-		line-height: 1.6;
-		margin-bottom: var(--space-md);
-	}
-
-	.source-format code {
-		font-family: var(--font-mono);
-		font-size: 0.78rem;
-		color: var(--color-text-faint);
-		background: var(--color-bg-alt);
-		padding: 0.2em 0.5em;
-		border-radius: var(--radius-sm);
-	}
-
-	.coming-soon {
-		padding: var(--space-4xl) 0;
-		text-align: center;
-	}
-
-	.coming-soon h2 {
-		font-size: clamp(1.5rem, 3vw, 2rem);
-		font-weight: 700;
-		letter-spacing: -0.02em;
-		margin-bottom: var(--space-xl);
-	}
-
-	.coming-list {
-		display: flex;
-		gap: var(--space-sm);
-		justify-content: center;
-		flex-wrap: wrap;
-		margin-bottom: var(--space-xl);
-	}
-
-	.coming-chip {
-		font-size: 0.85rem;
-		color: var(--color-text-faint);
-		border: 1px dashed var(--color-border);
-		padding: 0.4em 1em;
-		border-radius: var(--radius-full);
-	}
-
-	.coming-note a {
-		color: var(--color-accent);
-		font-size: 0.95rem;
-		font-weight: 500;
-	}
-
-	@media (max-width: 640px) {
-		.page-header { padding-top: 100px; }
-		.page-header h1 { font-size: clamp(1.75rem, 5vw, 2.5rem); }
-		.source-card { padding: var(--space-lg); }
-		.source-name { font-size: 1rem; }
-	}
-</style>
