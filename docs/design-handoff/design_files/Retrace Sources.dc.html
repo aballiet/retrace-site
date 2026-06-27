@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<dc-import name="Retrace Shell" active="sources" hint-size="100%,100%">
+
+  <!-- ============ HEADER ============ -->
+  <section style="padding:128px 0 48px;text-align:center;">
+    <div style="max-width:720px;margin:0 auto;padding:0 24px;" data-reveal>
+      <div style="font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:var(--tracking-caps);color:var(--color-accent);margin-bottom:16px;">sources</div>
+      <h1 style="font-size:clamp(2.2rem,5vw,3.4rem);font-weight:700;letter-spacing:-0.03em;line-height:1.1;">Every platform where you <span style="color:var(--color-accent);">think and talk.</span></h1>
+      <p style="font-size:1.15rem;color:var(--color-text-muted);line-height:1.65;max-width:520px;margin:18px auto 0;">Retrace reads from 10 sources. Import, sync, or connect live. Format is always auto-detected.</p>
+    </div>
+  </section>
+
+  <!-- ============ GROUP: BROWSER EXTENSION ============ -->
+  <section style="padding:var(--space-3xl) 0;">
+    <div style="max-width:1080px;margin:0 auto;padding:0 24px;">
+      <div data-reveal style="margin-bottom:var(--space-xl);">
+        <h2 style="font-size:clamp(1.4rem,3vw,1.9rem);font-weight:700;letter-spacing:-0.02em;">Browser extension</h2>
+        <p style="color:var(--color-text-muted);font-size:1rem;margin-top:6px;">Auto-sync from your browser, completely silent.</p>
+      </div>
+      <div data-reveal data-stack="760" data-cols="repeat(2,minmax(min(300px,100%),1fr))" data-cols-mobile="1fr" style="display:grid;grid-template-columns:repeat(2,minmax(min(300px,100%),1fr));gap:20px;">
+        <div data-card style="padding:28px;background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);transition:transform var(--duration-normal) var(--ease-out),box-shadow var(--duration-normal) var(--ease-out),border-color var(--duration-normal) var(--ease-out);" style-hover="transform:translateY(-2px);box-shadow:var(--shadow-md);border-color:var(--color-border-light)">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;"><span style="display:flex;align-items:center;gap:10px;font-size:1.1rem;font-weight:650;letter-spacing:-0.01em;"><span data-glyph="chatgpt" style="display:flex;"></span>ChatGPT</span><span style="font-family:var(--font-mono);font-size:10.5px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:var(--color-teal);background:var(--color-teal-glow);padding:3px 9px;border-radius:var(--radius-full);">extension</span></div>
+          <p style="color:var(--color-text-muted);font-size:0.92rem;line-height:1.6;">Background sync of all conversations. Rate-limited, completely silent.</p>
+          <div style="margin-top:16px;"><code style="font-size:0.78rem;color:var(--color-text-faint);background:var(--color-bg-alt);padding:3px 8px;border-radius:var(--radius-sm);">API</code></div>
+        </div>
+        <div data-card style="padding:28px;background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);transition:transform var(--duration-normal) var(--ease-out),box-shadow var(--duration-normal) var(--ease-out),border-color var(--duration-normal) var(--ease-out);" style-hover="transform:translateY(-2px);box-shadow:var(--shadow-md);border-color:var(--color-border-light)">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;"><span style="display:flex;align-items:center;gap:10px;font-size:1.1rem;font-weight:650;letter-spacing:-0.01em;"><span data-glyph="claude" style="display:flex;"></span>Claude</span><span style="font-family:var(--font-mono);font-size:10.5px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:var(--color-teal);background:var(--color-teal-glow);padding:3px 9px;border-radius:var(--radius-full);">extension</span></div>
+          <p style="color:var(--color-text-muted);font-size:0.92rem;line-height:1.6;">Background sync of all conversations. Same as ChatGPT.</p>
+          <div style="margin-top:16px;"><code style="font-size:0.78rem;color:var(--color-text-faint);background:var(--color-bg-alt);padding:3px 8px;border-radius:var(--radius-sm);">API</code></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ GROUP: IMPORT ============ -->
+  <section style="background:var(--color-bg-alt);border-top:1px solid var(--color-border);border-bottom:1px solid var(--color-border);padding:var(--space-3xl) 0;">
+    <div style="max-width:1080px;margin:0 auto;padding:0 24px;">
+      <div data-reveal style="margin-bottom:var(--space-xl);">
+        <h2 style="font-size:clamp(1.4rem,3vw,1.9rem);font-weight:700;letter-spacing:-0.02em;">Import</h2>
+        <p style="color:var(--color-text-muted);font-size:1rem;margin-top:6px;">Drag and drop, format auto-detected.</p>
+      </div>
+      <div data-reveal data-stack="760" data-cols="repeat(3,minmax(min(260px,100%),1fr))" data-cols-mobile="1fr" style="display:grid;grid-template-columns:repeat(3,minmax(min(260px,100%),1fr));gap:20px;">
+        <div data-card style="padding:24px;background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);transition:transform var(--duration-normal) var(--ease-out),box-shadow var(--duration-normal) var(--ease-out),border-color var(--duration-normal) var(--ease-out);" style-hover="transform:translateY(-2px);box-shadow:var(--shadow-md);border-color:var(--color-border-light)">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;"><span style="display:flex;align-items:center;gap:9px;font-size:1.02rem;font-weight:650;"><span data-glyph="whatsapp" data-glyph-size="20" style="display:flex;"></span>WhatsApp</span><code style="font-size:0.72rem;color:var(--color-text-faint);background:var(--color-bg-alt);padding:2px 7px;border-radius:var(--radius-sm);">.txt</code></div>
+          <p style="color:var(--color-text-muted);font-size:0.88rem;line-height:1.55;">Export from the app as .txt. Multi-format support, group and DM.</p>
+        </div>
+        <div data-card style="padding:24px;background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);transition:transform var(--duration-normal) var(--ease-out),box-shadow var(--duration-normal) var(--ease-out),border-color var(--duration-normal) var(--ease-out);" style-hover="transform:translateY(-2px);box-shadow:var(--shadow-md);border-color:var(--color-border-light)">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;"><span style="display:flex;align-items:center;gap:9px;font-size:1.02rem;font-weight:650;"><span data-glyph="messenger" data-glyph-size="20" style="display:flex;"></span>Messenger</span><code style="font-size:0.72rem;color:var(--color-text-faint);background:var(--color-bg-alt);padding:2px 7px;border-radius:var(--radius-sm);">.json</code></div>
+          <p style="color:var(--color-text-muted);font-size:0.88rem;line-height:1.55;">Facebook "Download Your Information" JSON export.</p>
+        </div>
+        <div data-card style="padding:24px;background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);transition:transform var(--duration-normal) var(--ease-out),box-shadow var(--duration-normal) var(--ease-out),border-color var(--duration-normal) var(--ease-out);" style-hover="transform:translateY(-2px);box-shadow:var(--shadow-md);border-color:var(--color-border-light)">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;"><span style="display:flex;align-items:center;gap:9px;font-size:1.02rem;font-weight:650;"><span data-glyph="instagram" data-glyph-size="20" style="display:flex;"></span>Instagram</span><code style="font-size:0.72rem;color:var(--color-text-faint);background:var(--color-bg-alt);padding:2px 7px;border-radius:var(--radius-sm);">.json</code></div>
+          <p style="color:var(--color-text-muted);font-size:0.88rem;line-height:1.55;">DM export with multi-file thread merging and encoding fixes.</p>
+        </div>
+        <div data-card style="padding:24px;background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);transition:transform var(--duration-normal) var(--ease-out),box-shadow var(--duration-normal) var(--ease-out),border-color var(--duration-normal) var(--ease-out);" style-hover="transform:translateY(-2px);box-shadow:var(--shadow-md);border-color:var(--color-border-light)">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;"><span style="display:flex;align-items:center;gap:9px;font-size:1.02rem;font-weight:650;"><span data-glyph="sms" data-glyph-size="20" style="display:flex;"></span>SMS / MMS</span><code style="font-size:0.72rem;color:var(--color-text-faint);background:var(--color-bg-alt);padding:2px 7px;border-radius:var(--radius-sm);">.xml</code></div>
+          <p style="color:var(--color-text-muted);font-size:0.88rem;line-height:1.55;">XML from SMS Backup & Restore. Phone numbers normalized.</p>
+        </div>
+        <div data-card style="padding:24px;background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);transition:transform var(--duration-normal) var(--ease-out),box-shadow var(--duration-normal) var(--ease-out),border-color var(--duration-normal) var(--ease-out);" style-hover="transform:translateY(-2px);box-shadow:var(--shadow-md);border-color:var(--color-border-light)">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;"><span style="display:flex;align-items:center;gap:9px;font-size:1.02rem;font-weight:650;"><span data-glyph="keep" data-glyph-size="20" style="display:flex;"></span>Google Keep</span><code style="font-size:0.72rem;color:var(--color-text-faint);background:var(--color-bg-alt);padding:2px 7px;border-radius:var(--radius-sm);">.html</code></div>
+          <p style="color:var(--color-text-muted);font-size:0.88rem;line-height:1.55;">Notes and checklists from Google Takeout.</p>
+        </div>
+        <div data-card style="padding:24px;background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);transition:transform var(--duration-normal) var(--ease-out),box-shadow var(--duration-normal) var(--ease-out),border-color var(--duration-normal) var(--ease-out);" style-hover="transform:translateY(-2px);box-shadow:var(--shadow-md);border-color:var(--color-border-light)">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;"><span style="display:flex;align-items:center;gap:9px;font-size:1.02rem;font-weight:650;"><span data-glyph="calendar" data-glyph-size="20" style="display:flex;"></span>Calendar</span><code style="font-size:0.72rem;color:var(--color-text-faint);background:var(--color-bg-alt);padding:2px 7px;border-radius:var(--radius-sm);">.ics</code></div>
+          <p style="color:var(--color-text-muted);font-size:0.88rem;line-height:1.55;">ICS file parsing with recurring event expansion and day grouping.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ GROUP: LIVE SYNC ============ -->
+  <section style="padding:var(--space-3xl) 0;">
+    <div style="max-width:1080px;margin:0 auto;padding:0 24px;">
+      <div data-reveal style="margin-bottom:var(--space-xl);">
+        <h2 style="font-size:clamp(1.4rem,3vw,1.9rem);font-weight:700;letter-spacing:-0.02em;">Live sync</h2>
+        <p style="color:var(--color-text-muted);font-size:1rem;margin-top:6px;">Real-time, always up to date.</p>
+      </div>
+      <div data-reveal data-stack="760" data-cols="repeat(2,minmax(min(300px,100%),1fr))" data-cols-mobile="1fr" style="display:grid;grid-template-columns:repeat(2,minmax(min(300px,100%),1fr));gap:20px;">
+        <div data-card style="padding:28px;background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);transition:transform var(--duration-normal) var(--ease-out),box-shadow var(--duration-normal) var(--ease-out),border-color var(--duration-normal) var(--ease-out);" style-hover="transform:translateY(-2px);box-shadow:var(--shadow-md);border-color:var(--color-border-light)">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;"><span style="display:flex;align-items:center;gap:10px;font-size:1.1rem;font-weight:650;"><span data-glyph="whatsapp" style="display:flex;"></span>WhatsApp</span><span style="font-family:var(--font-mono);font-size:10.5px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:var(--color-teal);background:var(--color-teal-glow);padding:3px 9px;border-radius:var(--radius-full);">live</span></div>
+          <p style="color:var(--color-text-muted);font-size:0.92rem;line-height:1.6;">Connect via QR code. Real-time messages via Baileys protocol. Auto-reconnect.</p>
+          <div style="margin-top:16px;"><code style="font-size:0.78rem;color:var(--color-text-faint);background:var(--color-bg-alt);padding:3px 8px;border-radius:var(--radius-sm);">WebSocket</code></div>
+        </div>
+        <div data-card style="padding:28px;background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);transition:transform var(--duration-normal) var(--ease-out),box-shadow var(--duration-normal) var(--ease-out),border-color var(--duration-normal) var(--ease-out);" style-hover="transform:translateY(-2px);box-shadow:var(--shadow-md);border-color:var(--color-border-light)">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;"><span style="display:flex;align-items:center;gap:10px;font-size:1.1rem;font-weight:650;"><span data-glyph="obsidian" style="display:flex;"></span>Obsidian</span><span style="font-family:var(--font-mono);font-size:10.5px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:var(--color-teal);background:var(--color-teal-glow);padding:3px 9px;border-radius:var(--radius-full);">live</span></div>
+          <p style="color:var(--color-text-muted);font-size:0.92rem;line-height:1.6;">Vault filesystem watcher. Daily notes sync automatically.</p>
+          <div style="margin-top:16px;"><code style="font-size:0.78rem;color:var(--color-text-faint);background:var(--color-bg-alt);padding:3px 8px;border-radius:var(--radius-sm);">.md</code></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ COMING SOON ============ -->
+  <section style="background:var(--color-bg-alt);border-top:1px solid var(--color-border);padding:var(--space-4xl) 0;text-align:center;">
+    <div style="max-width:720px;margin:0 auto;padding:0 24px;" data-reveal>
+      <h2 style="font-size:clamp(1.4rem,3vw,1.9rem);font-weight:700;letter-spacing:-0.02em;">More sources coming</h2>
+      <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:24px 0;">
+        <span style="font-size:0.9rem;color:var(--color-text-faint);border:1px dashed var(--color-border-light);padding:7px 16px;border-radius:var(--radius-full);">Telegram</span>
+        <span style="font-size:0.9rem;color:var(--color-text-faint);border:1px dashed var(--color-border-light);padding:7px 16px;border-radius:var(--radius-full);">iMessage</span>
+        <span style="font-size:0.9rem;color:var(--color-text-faint);border:1px dashed var(--color-border-light);padding:7px 16px;border-radius:var(--radius-full);">Email (sent folder)</span>
+        <span style="font-size:0.9rem;color:var(--color-text-faint);border:1px dashed var(--color-border-light);padding:7px 16px;border-radius:var(--radius-full);">Gemini</span>
+      </div>
+      <a href="#" style="color:var(--color-accent);font-size:0.95rem;font-weight:500;">See the full roadmap &rarr;</a>
+    </div>
+  </section>
+
+</dc-import>
+</x-dc>
+</body>
+</html>

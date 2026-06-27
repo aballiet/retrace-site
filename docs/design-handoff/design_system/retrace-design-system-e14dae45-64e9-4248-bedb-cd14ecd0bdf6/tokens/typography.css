@@ -1,0 +1,47 @@
+/* ============================================
+   Retrace — Typography tokens
+   Inter for everything UI. JetBrains Mono for metadata, timestamps,
+   counts, code. The wordmark is always lowercase Inter 600, -0.035em.
+   Two registers matter: RAW (data — messages, names) reads in the
+   regular sans; SYNTHESIZED (reflection — summaries) reads the same
+   family but calmer/lighter weight. Keep type quiet.
+   ============================================ */
+:root {
+	--font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+	--font-mono: 'JetBrains Mono', 'Fira Code', ui-monospace, SFMono-Regular, monospace;
+
+	/* Type scale (rem, 16px base) */
+	--text-xs: 0.75rem;     /* 12 — captions, mono metadata */
+	--text-sm: 0.875rem;    /* 14 — labels, secondary */
+	--text-base: 1rem;      /* 16 — dense UI body */
+	--text-md: 1.125rem;    /* 18 — reading body (marketing) */
+	--text-lg: 1.375rem;    /* 22 — card titles */
+	--text-xl: 1.75rem;     /* 28 — section headers, wordmark */
+	--text-2xl: 2.25rem;    /* 36 — page titles */
+	--text-3xl: 3rem;       /* 48 — hero */
+	--text-4xl: 3.75rem;    /* 60 — display hero */
+
+	/* Weights */
+	--weight-regular: 400;
+	--weight-medium: 500;
+	--weight-semibold: 600;
+	--weight-bold: 700;
+
+	/* Line heights */
+	--leading-tight: 1.15;   /* display / headings */
+	--leading-snug: 1.35;    /* card titles */
+	--leading-normal: 1.5;   /* dense UI */
+	--leading-relaxed: 1.65; /* reading body */
+
+	/* Letter spacing */
+	--tracking-tight: -0.02em;    /* headings */
+	--tracking-wordmark: -0.035em;/* the "retrace" wordmark, lowercase */
+	--tracking-normal: 0;
+	--tracking-wide: 0.02em;
+	--tracking-caps: 0.08em;      /* small all-caps eyebrows */
+
+	/* Semantic aliases */
+	--font-display: var(--font-sans);
+	--font-body: var(--font-sans);
+	--font-meta: var(--font-mono);
+}

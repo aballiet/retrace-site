@@ -1,0 +1,68 @@
+/* ============================================
+   Retrace — Color tokens
+   Warm, light, calm. Two accents (terracotta + teal) over a
+   paper-like off-white. Never recolor the brand gradient.
+   ============================================ */
+:root {
+	/* ---- Brand ---- */
+	--color-terracotta: #c8723a;   /* primary warm accent / gradient start */
+	--color-terracotta-light: #d4884e;
+	--color-teal: #3a8f85;         /* secondary accent / gradient end */
+	--color-teal-light: #4da89d;
+	--color-brown: #2d2a26;        /* text, monochrome mark, dark tiles */
+	--color-off-white: #faf9f7;    /* app background, light tiles */
+
+	/* Brand gradient — terracotta cooling into teal, top-left → bottom.
+	   Keep the direction (it reads as "capture cooling into reflection"). */
+	--gradient-brand: linear-gradient(160deg, #c8723a 0%, #3a8f85 100%); /* @kind color */
+	--gradient-brand-soft: linear-gradient(160deg, rgba(200,114,58,0.14) 0%, rgba(58,143,133,0.12) 100%); /* @kind color */
+
+	/* ---- Surfaces (warm light palette) ---- */
+	--color-bg: #faf9f7;           /* page / app background */
+	--color-bg-alt: #f3f1ed;       /* recessed sections, titlebars */
+	--color-surface: #ffffff;      /* cards, raised surfaces */
+	--color-surface-hover: #f9f8f6;
+	--color-border: #e8e5df;       /* default hairline */
+	--color-border-light: #d4d0c8; /* slightly stronger hairline */
+
+	/* ---- Accents (semantic) ---- */
+	--color-primary: #2d2a26;      /* primary action / ink */
+	--color-accent: #c8723a;
+	--color-accent-light: #d4884e;
+	--color-accent-glow: rgba(200, 114, 58, 0.12);
+	--color-teal-glow: rgba(58, 143, 133, 0.08);
+
+	/* ---- Text ---- */
+	--color-text: #2d2a26;         /* primary copy */
+	--color-text-muted: #6b6560;   /* secondary copy, labels */
+	--color-text-faint: #9c958e;   /* captions, timestamps, placeholders */
+	--color-text-on-accent: #faf9f7;
+
+	/* ---- Status (warm-leaning, used sparingly) ---- */
+	--color-positive: #3a8f85;     /* positive sentiment / success */
+	--color-neutral: #9c958e;      /* neutral sentiment */
+	--color-negative: #b9533b;     /* negative sentiment / destructive */
+	--color-warning: #c89a3a;
+
+	/* ---- Platform brand colors (source badges) ---- */
+	--platform-whatsapp: #25D366;
+	--platform-claude: #D97706;
+	--platform-chatgpt: #10A37F;
+	--platform-messenger: #0084FF;
+	--platform-instagram: #E4405F;
+	--platform-imessage: #4CAF50;
+	--platform-obsidian: #7C3AED;
+	--platform-keep: #FBBC04;
+	--platform-calendar: #4285F4;
+
+	/* ---- Semantic aliases ---- */
+	--text-heading: var(--color-text);
+	--text-body: var(--color-text);
+	--text-secondary: var(--color-text-muted);
+	--text-caption: var(--color-text-faint);
+	--surface-page: var(--color-bg);
+	--surface-card: var(--color-surface);
+	--surface-sunken: var(--color-bg-alt);
+	--border-hairline: var(--color-border);
+	--accent: var(--color-accent);
+}

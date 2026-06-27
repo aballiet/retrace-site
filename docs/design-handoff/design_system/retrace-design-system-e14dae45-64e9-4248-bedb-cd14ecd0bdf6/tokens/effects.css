@@ -1,0 +1,28 @@
+/* ============================================
+   Retrace — Effects: shadows, motion, blur
+   Borders recede; elevation is soft and low-contrast. Motion is
+   calm — gentle ease-out fades and lifts, never bounces or spins
+   for attention. Nothing pulses or demands the eye.
+   ============================================ */
+:root {
+	/* ---- Shadows (soft, warm-neutral, low opacity) ---- */
+	--shadow-xs: 0 1px 2px rgba(45, 42, 38, 0.04);
+	--shadow-sm: 0 1px 3px rgba(45, 42, 38, 0.05), 0 1px 2px rgba(45, 42, 38, 0.04);
+	--shadow-md: 0 4px 16px rgba(45, 42, 38, 0.06);
+	--shadow-lg: 0 20px 60px rgba(45, 42, 38, 0.10), 0 4px 16px rgba(45, 42, 38, 0.05);
+	/* Tight directional glow used on floating glyph circles in diagrams */
+	--shadow-glyph: 0 0 20px -12px rgba(0, 0, 0, 0.8);
+	/* Focus ring — terracotta, soft */
+	--ring-focus: 0 0 0 3px rgba(200, 114, 58, 0.22);
+
+	/* ---- Motion ---- */
+	--ease-out: cubic-bezier(0.16, 1, 0.3, 1); /* @kind other */
+	--ease-in-out: cubic-bezier(0.45, 0, 0.55, 1); /* @kind other */
+	--duration-fast: 200ms;  /* @kind other */
+	--duration-normal: 400ms; /* @kind other */
+	--duration-slow: 800ms;  /* @kind other */
+
+	/* ---- Blur / glass (used sparingly, e.g. sticky nav over content) ---- */
+	--blur-nav: saturate(180%) blur(12px); /* @kind other */
+	--scrim-nav: rgba(250, 249, 247, 0.78);
+}

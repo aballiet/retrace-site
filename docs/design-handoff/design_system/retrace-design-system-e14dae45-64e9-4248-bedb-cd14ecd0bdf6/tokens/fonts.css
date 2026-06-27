@@ -1,0 +1,8 @@
+/* ============================================
+   Retrace — Webfonts
+   Inter (UI / wordmark) + JetBrains Mono (code, metadata, timestamps)
+   Loaded from Google Fonts. If you need fully offline/self-hosted
+   binaries, drop the .woff2 files in assets/fonts/ and swap these
+   @import lines for local @font-face rules.
+   ============================================ */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
