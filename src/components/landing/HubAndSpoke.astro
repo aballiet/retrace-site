@@ -146,4 +146,19 @@ const nodes = items.map(([name, deg], i) => {
 		white-space: nowrap;
 		z-index: 3;
 	}
+
+	@media (max-width: 560px) {
+		.hub {
+			max-width: 340px;
+		}
+		.hub-chip {
+			width: 46px;
+			height: 46px;
+			border-radius: 13px;
+		}
+		.hub-core {
+			width: 84px;
+			height: 84px;
+		}
+	}
 </style>
