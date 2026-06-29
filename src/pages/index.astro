@@ -370,7 +370,7 @@ const stats: [string, string][] = [
 			const span = document.getElementById('rotating-word');
 			if (!span) return;
 			if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-			const words = ['conversations.', 'music.', 'journal.', 'growth.'];
+			const words = ['conversations.', 'music.', 'journal.', 'growth.', 'projects.'];
 			let i = 0;
 			window.setInterval(() => {
 				span.style.opacity = '0';
@@ -381,7 +381,7 @@ const stats: [string, string][] = [
 					span.style.opacity = '1';
 					span.style.transform = 'translateY(0)';
 				}, 400);
-			}, 2600);
+			}, 2000);
 		}
 		initRotator();
 		document.addEventListener('astro:page-load', initRotator);
