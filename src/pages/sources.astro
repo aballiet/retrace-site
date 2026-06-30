@@ -14,13 +14,13 @@ const importSources = [
 const comingSoon = ['Telegram', 'iMessage', 'Email (sent folder)', 'Gemini'];
 ---
 
-<BaseLayout active="sources" title="Sources - Retrace" description="Retrace reads from 10 sources. Import, sync, or connect live. Format is always auto-detected.">
+<BaseLayout active="sources" title="Sources - Retrace" description="Retrace reads from 11 sources. Import, sync, or connect live. Format is always auto-detected.">
 	<!-- HEADER -->
 	<header class="page-header" data-inview>
 		<div class="wrap-narrow">
 			<div class="eyebrow eyebrow-accent reveal">sources</div>
 			<h1 class="reveal reveal-delay-1">Every platform where you <span class="accent">think and talk.</span></h1>
-			<p class="reveal reveal-delay-2">Retrace reads from 10 sources. Import, sync, or connect live. Format is always auto-detected.</p>
+			<p class="reveal reveal-delay-2">Retrace reads from 11 sources. Import, sync, or connect live. Format is always auto-detected.</p>
 		</div>
 	</header>
 
@@ -76,7 +76,7 @@ const comingSoon = ['Telegram', 'iMessage', 'Email (sent folder)', 'Gemini'];
 				<h2>Live sync</h2>
 				<p>Real-time, always up to date.</p>
 			</div>
-			<div class="cards cards-2" data-inview>
+			<div class="cards cards-3" data-inview>
 				<div class="card reveal">
 					<div class="card-head"><span class="card-title"><Glyph name="whatsapp" size={22} />WhatsApp</span><span class="badge">live</span></div>
 					<p>Connect via QR code. Real-time messages via Baileys protocol. Auto-reconnect.</p>
@@ -86,6 +86,11 @@ const comingSoon = ['Telegram', 'iMessage', 'Email (sent folder)', 'Gemini'];
 					<div class="card-head"><span class="card-title"><Glyph name="obsidian" size={22} />Obsidian</span><span class="badge">live</span></div>
 					<p>Vault filesystem watcher. Daily notes sync automatically.</p>
 					<div class="card-foot"><code>.md</code></div>
+				</div>
+				<div class="card reveal reveal-delay-2">
+					<div class="card-head"><span class="card-title"><Glyph name="spotify" size={22} />Spotify</span><span class="badge">live</span></div>
+					<p>Connect your account once. Listening history syncs automatically, tracks and artists over time.</p>
+					<div class="card-foot"><code>OAuth</code></div>
 				</div>
 			</div>
 		</div>
