@@ -1,5 +1,5 @@
-node_modules
+# Local remnants are never part of the committed deployment artifact.
+node_modules/
 .astro/
 .DS_Store
-.env
-.env.production
+.env*
