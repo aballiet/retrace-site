@@ -29,7 +29,7 @@ jobs:
           set -euo pipefail
           test -f dist/index.html
           test -f dist/docs/index.html
-          test -f dist/docs/getting-started.html
+          test -f dist/docs/getting-started/index.html
           test -f dist/demo/index.html
           test -f dist/CNAME
           if find dist -type f -name '*.map' -print -quit | grep -q .; then
