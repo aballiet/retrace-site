@@ -1,0 +1,56 @@
+name: Sweep expired Actions artifacts
+
+# GitHub expires artifacts after their configured retention period, but physical
+# cleanup can lag long enough to exhaust the account storage quota. This job is a
+# narrow backstop: it only deletes artifacts GitHub already marks as expired.
+
+on:
+  schedule:
+    - cron: "47 5 * * *" # daily, 05:47 UTC
+  workflow_dispatch: {}
+
+concurrency:
+  group: artifact-sweeper
+  cancel-in-progress: false
+
+permissions:
+  actions: write
+
+jobs:
+  sweep:
+    name: Delete overdue expired artifacts
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Delete expired artifacts
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          expired_ids="$(
+            gh api --paginate "repos/$GH_REPO/actions/artifacts?per_page=100" \
+              --jq '.artifacts[] | select(.expired == true) | .id'
+          )"
+
+          deleted=0
+          already_absent=0
+          while IFS= read -r artifact_id; do
+            [[ -n "$artifact_id" ]] || continue
+
+            if delete_error="$(
+              gh api --silent --method DELETE \
+                "repos/$GH_REPO/actions/artifacts/$artifact_id" 2>&1
+            )"; then
+              deleted=$((deleted + 1))
+            elif [[ "$delete_error" == *"(HTTP 404)"* ]]; then
+              already_absent=$((already_absent + 1))
+            else
+              printf '%s\n' "$delete_error" >&2
+              exit 1
+            fi
+          done <<< "$expired_ids"
+
+          echo "Deleted $deleted expired artifact(s); $already_absent already absent."
